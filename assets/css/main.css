@@ -1353,7 +1353,7 @@ ul.uk-nav-sub { padding: 5px 0 5px 15px; }
 .uk-navbar .uk-search-navbar .uk-search-input { height: 50px; font-size: 1.0625rem; padding-left: 1.1875rem; background: #fff; }
 
 /* Container ========================================================================== */
-.uk-navbar-container:not(.uk-navbar-transparent) { background: #4a022a; }
+.uk-navbar-container:not(.uk-navbar-transparent) { background: #558b2f; }
 
 /* Remove pseudo elements created by micro clearfix as precaution (if Container component is used) */
 .uk-navbar-container > ::before, .uk-navbar-container > ::after { display: none !important; }
@@ -1549,7 +1549,7 @@ ul.uk-nav-sub { padding: 5px 0 5px 15px; }
 
 .wrapper.small-pad { padding-top: 45px; padding-bottom: 45px; }
 
-nav.siblings { background-color: #4a022a; position: absolute; left: 0; top: 0; width: 100%; overflow: hidden; }
+nav.siblings { background-color: #558b2f; position: absolute; left: 0; top: 0; width: 100%; overflow: hidden; }
 
 nav.siblings .wrapper { display: flex; justify-content: flex-start; padding: 0 10px; }
 
@@ -1565,9 +1565,9 @@ nav.siblings a.active:after, nav.siblings .no-active-replacement:after { right: 
 
 nav.siblings .no-active-replacement:before, nav.siblings .no-active-replacement:after { border-radius: 0; }
 
-nav.siblings.light a.active:before, nav.siblings.light a.active:after, nav.siblings.light .no-active-replacement:before, nav.siblings.light .no-active-replacement:after { background: #4a022a; }
+nav.siblings.light a.active:before, nav.siblings.light a.active:after, nav.siblings.light .no-active-replacement:before, nav.siblings.light .no-active-replacement:after { background: #558b2f; }
 
-nav.siblings.light a:active nav.siblings.light a.active:hover, nav.siblings.light a.active:active, nav.siblings.light a.active { color: #4a022a; background: #fff; }
+nav.siblings.light a:active nav.siblings.light a.active:hover, nav.siblings.light a.active:active, nav.siblings.light a.active { color: #558b2f; background: #fff; }
 
 nav.siblings + header { padding-top: 40px; }
 
@@ -1593,7 +1593,7 @@ nav.siblings + header { padding-top: 40px; }
 
 .nav-bar.wrapper .main a.active, .nav-bar.wrapper .main a:hover { opacity: 1; }
 
-@media only screen and (max-width: 929px) { .nav-bar.wrapper .right .button { background: none; text-align: right; text-transform: none; font-weight: 400; border: 0; } .nav-bar.wrapper .right .button.dark:hover { color: #fff; } .nav-bar.wrapper .right .button.light:hover { color: #4a022a; } }
+@media only screen and (max-width: 929px) { .nav-bar.wrapper .right .button { background: none; text-align: right; text-transform: none; font-weight: 400; border: 0; } .nav-bar.wrapper .right .button.dark:hover { color: #fff; } .nav-bar.wrapper .right .button.light:hover { color: #558b2f; } }
 
 /* ======================================================================== Component: Pagination ========================================================================== */
 /* 1. Allow items to wrap into the next line 2. Gutter 3. Reset list */
@@ -2489,7 +2489,7 @@ header .uk-logo:hover { color: #ccc; }
 
 @media (min-width: 960px) { .section-title ~ .section-title { margin-top: 70px; } }
 
-.section-hero { background-color: #CE80AB; }
+.section-hero { background-color: #F5D6BA; }
 
 .section-hero .hero-search { max-width: 550px; margin: 60px auto 0 auto; }
 

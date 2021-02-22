@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Getting started with aireglu | AireGlu Docs</title>
+<title>Aireglu deployment/rollback process | AireGlu Docs</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Getting started with aireglu" />
+<meta property="og:title" content="Aireglu deployment/rollback process" />
 <meta name="author" content="Anton" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Introducing the dashboard The dashboard is the first page you’ll encounter upong logging in. It will show you:" />
-<meta property="og:description" content="Introducing the dashboard The dashboard is the first page you’ll encounter upong logging in. It will show you:" />
-<link rel="canonical" href="https://docs.aireglu.com/docs/getting-started/" />
-<meta property="og:url" content="https://docs.aireglu.com/docs/getting-started/" />
+<meta name="description" content="Deployment approach To manage deployment as seamlessly as possible, we take the following approach to rolling out changes." />
+<meta property="og:description" content="Deployment approach To manage deployment as seamlessly as possible, we take the following approach to rolling out changes." />
+<link rel="canonical" href="https://docs.aireglu.com/docs/deployment-process/" />
+<meta property="og:url" content="https://docs.aireglu.com/docs/deployment-process/" />
 <meta property="og:site_name" content="AireGlu Docs" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-02-22T09:12:48+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Getting started with aireglu" />
+<meta property="twitter:title" content="Aireglu deployment/rollback process" />
 <script type="application/ld+json">
-{"description":"Introducing the dashboard The dashboard is the first page you’ll encounter upong logging in. It will show you:","headline":"Getting started with aireglu","dateModified":"2021-02-22T09:12:48+00:00","datePublished":"2021-02-22T09:12:48+00:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/getting-started/"},"url":"https://docs.aireglu.com/docs/getting-started/","author":{"@type":"Person","name":"Anton"},"@context":"https://schema.org"}</script>
+{"description":"Deployment approach To manage deployment as seamlessly as possible, we take the following approach to rolling out changes.","headline":"Aireglu deployment/rollback process","dateModified":"2021-02-22T09:12:48+00:00","datePublished":"2021-02-22T09:12:48+00:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/deployment-process/"},"url":"https://docs.aireglu.com/docs/deployment-process/","author":{"@type":"Person","name":"Anton"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.aireglu.com/assets/posts/"/>
@@ -74,7 +74,7 @@
                     
                     
                     
-                        <li class="uk-active"><a href="/docs/getting-started/" >Getting Started</a></li>
+                        <li><a href="/docs/getting-started/" >Getting Started</a></li>
                     
                 
                     
@@ -145,9 +145,9 @@
 
                 <article class="uk-article">
 
-                    <h1 class="uk-article-title">Getting started with aireglu</h1>
+                    <h1 class="uk-article-title">Aireglu deployment/rollback process</h1>
 
-                    <p class="subtitle uk-text-lead uk-text-muted">Learn the basics of aireglu</p>
+                    <p class="subtitle uk-text-lead uk-text-muted">Managing change</p>
 
                     <div class="uk-article-meta uk-margin-top uk-margin-medium-bottom">
                         
@@ -164,19 +164,22 @@
                     </div>
 
                     <div class="article-content">
-                        <h2 id="introducing-the-dashboard">Introducing the dashboard</h2>
-<p><img src="/assets/img/aireglu-dash.png" alt="dashboard" />
-The dashboard is the first page you’ll encounter upong logging in. It will show you:</p>
+                        <h2 id="deployment-approach">Deployment approach</h2>
+<p>To manage deployment as seamlessly as possible, we take the following approach to rolling out changes.</p>
 
-<ul>
-  <li>Statistics on usage</li>
-  <li>Any errors</li>
-</ul>
+<h3 id="bluegreen-deployment">Blue/green deployment</h3>
+<p>To achieve near zero downtime, we use a blue-green deployment approach. This means that when we’re deploying a change, an environment running the previous version of the software is kept on standby, allowing us to verify the new changes and quickly rollback if there are any issues.</p>
+
+<h3 id="in-business-hours-deployments">In-business hours deployments</h3>
+<p>We aim to keep deployments within business hours whenever possible to minimise the risk of any problems occuring while most staff are unavailable.</p>
+
+<h3 id="change-logs">Change logs</h3>
+<p>We provide details of changes introduced in every version in our change log <a href="../../changelog">here</a>.</p>
 
 
                         <div class="share uk-text-center">
-    <a href="https://twitter.com/intent/tweet?text=Getting started with aireglu&url=https://docs.aireglu.com/docs/getting-started/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
-    <a  class="uk-margin-small-left" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.aireglu.com%2Fdocs%2Fgetting-started%2F" rel="nofollow" target="_blank" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span data-uk-icon="icon: facebook; ratio: 1.2"></span></a>
+    <a href="https://twitter.com/intent/tweet?text=Aireglu deployment/rollback process&url=https://docs.aireglu.com/docs/deployment-process/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
+    <a  class="uk-margin-small-left" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.aireglu.com%2Fdocs%2Fdeployment-process%2F" rel="nofollow" target="_blank" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span data-uk-icon="icon: facebook; ratio: 1.2"></span></a>
 </div>
 
                     </div>
@@ -207,18 +210,18 @@ The dashboard is the first page you’ll encounter upong logging in. It will sho
     
 
     
-        <li><a href="/docs/deployment-process/">Aireglu deployment/rollback process</a></li>
+
+    
+
+    
+    
+
+    
+
+    
+        <li><a href="/docs/getting-started/">Getting started with aireglu</a></li>
         
         
-    
-
-    
-
-    
-    
-
-    
-
     
 
     

@@ -1,11 +1,19 @@
 [
   
     {
+      "title"    : "Aireglu adapter implementation",
+      "category" : "",
+      "tags"     : "Extensibility, Advanced, Integration",
+      "url"      : "/docs/adapters/",
+      "date"     : "2021-03-10 15:16:43 +0000"
+    } ,
+  
+    {
       "title"    : "Aireglu deployment/rollback process",
       "category" : "",
       "tags"     : "featured",
       "url"      : "/docs/deployment-process/",
-      "date"     : "2021-03-01 08:53:51 +0000"
+      "date"     : "2021-03-10 15:16:43 +0000"
     } ,
   
     {
@@ -13,7 +21,7 @@
       "category" : "",
       "tags"     : "featured",
       "url"      : "/docs/getting-started/",
-      "date"     : "2021-03-01 08:53:51 +0000"
+      "date"     : "2021-03-10 15:16:43 +0000"
     } 
   
 ]

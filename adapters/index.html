@@ -6,21 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Welcome to Jekyll! | AireGlu Docs</title>
+<title>Introducing AireGlu adapters | AireGlu Docs</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Welcome to Jekyll!" />
+<meta property="og:title" content="Introducing AireGlu adapters" />
+<meta name="author" content="David Bond" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated." />
-<meta property="og:description" content="You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated." />
-<link rel="canonical" href="https://docs.aireglu.com/welcome-to-jekyll/" />
-<meta property="og:url" content="https://docs.aireglu.com/welcome-to-jekyll/" />
+<meta name="description" content="In the upcoming AireGlu v1.23.0 release we will be introducing new functionality to greatly increase the extensibility of the platform. Using AireGlu Adapters, you will be able to implement custom task behaviours as code plugins. This will allow your technical staff to create integration adapters that can access all of the power and flexibility of the C# language, and associated libraries." />
+<meta property="og:description" content="In the upcoming AireGlu v1.23.0 release we will be introducing new functionality to greatly increase the extensibility of the platform. Using AireGlu Adapters, you will be able to implement custom task behaviours as code plugins. This will allow your technical staff to create integration adapters that can access all of the power and flexibility of the C# language, and associated libraries." />
+<link rel="canonical" href="https://docs.aireglu.com/adapters/" />
+<meta property="og:url" content="https://docs.aireglu.com/adapters/" />
 <meta property="og:site_name" content="AireGlu Docs" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-10-26T14:19:20+00:00" />
+<meta property="article:published_time" content="2021-03-10T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Welcome to Jekyll!" />
+<meta property="twitter:title" content="Introducing AireGlu adapters" />
 <script type="application/ld+json">
-{"description":"You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.","headline":"Welcome to Jekyll!","dateModified":"2020-10-26T14:19:20+00:00","datePublished":"2020-10-26T14:19:20+00:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/welcome-to-jekyll/"},"url":"https://docs.aireglu.com/welcome-to-jekyll/","@context":"https://schema.org"}</script>
+{"description":"In the upcoming AireGlu v1.23.0 release we will be introducing new functionality to greatly increase the extensibility of the platform. Using AireGlu Adapters, you will be able to implement custom task behaviours as code plugins. This will allow your technical staff to create integration adapters that can access all of the power and flexibility of the C# language, and associated libraries.","headline":"Introducing AireGlu adapters","dateModified":"2021-03-10T00:00:00+00:00","datePublished":"2021-03-10T00:00:00+00:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/adapters/"},"url":"https://docs.aireglu.com/adapters/","author":{"@type":"Person","name":"David Bond"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.aireglu.com/assets/posts/"/>
@@ -131,7 +132,7 @@
     <div class="uk-container uk-container-xsmall">
         <article class="uk-article">
 
-            <h1 class="uk-article-title">Welcome to Jekyll!</h1>
+            <h1 class="uk-article-title">Introducing AireGlu adapters</h1>
 
             <div class="uk-article-meta uk-margin-top uk-margin-medium-bottom">
                 
@@ -140,36 +141,25 @@
 
 
 
-<time datetime="2020-10-26T14:19:20+00:00" itemprop="datePublished">
+<time datetime="2021-03-10T00:00:00+00:00" itemprop="datePublished">
     
-    Oct 26, 2020
+    Mar 10, 2021
 </time>
 
             </div>
 
             <div class="uk-article-content">
-                <p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+                <p>In the upcoming AireGlu v1.23.0 release we will be introducing new functionality to greatly increase the extensibility of the platform. Using AireGlu Adapters, you will be able to implement custom task behaviours as code plugins. This will allow your technical staff to create integration adapters that can access all of the power and flexibility of the C# language, and associated libraries.</p>
 
-<p>Jekyll requires blog post files to be named according to the following format:</p>
+<h2 id="how-does-it-work">How does it work?</h2>
+<p>By referencing a public nuget package, you will be able to implement the interface required to produce an AireGlu adapter. For self-hosted customers, you will then be able to install the plugin assembly to your local installation and make use of it immediately. For SaaS customers, you will need to go through a light-touch approval process with our team, after which your adapter will become available on your cloud environment.</p>
 
-<p><code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
-
-<p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
-
-<p>Jekyll also offers powerful support for code snippets:</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
-
-<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
-
+<h2 id="why-is-this-useful">Why is this useful?</h2>
+<p>AireGlu task behaviours are already very powerful, and can be combined to cover a wide range of integration scenarios. However, in some cases a lower-level implementation is needed, either to contain the complexity of the integration task at hand, or to make use of libraries and programming language features.</p>
 
                 <div class="share uk-text-center">
-    <a href="https://twitter.com/intent/tweet?text=Welcome to Jekyll!&url=https://docs.aireglu.com/welcome-to-jekyll/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
-    <a  class="uk-margin-small-left" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.aireglu.com%2Fwelcome-to-jekyll%2F" rel="nofollow" target="_blank" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span data-uk-icon="icon: facebook; ratio: 1.2"></span></a>
+    <a href="https://twitter.com/intent/tweet?text=Introducing AireGlu adapters&url=https://docs.aireglu.com/adapters/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
+    <a  class="uk-margin-small-left" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.aireglu.com%2Fadapters%2F" rel="nofollow" target="_blank" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span data-uk-icon="icon: facebook; ratio: 1.2"></span></a>
 </div>
 
             </div>
@@ -180,13 +170,13 @@
     <div class="uk-child-width-expand@s uk-grid-large uk-pagi" data-uk-grid>
         <div>
             
+                <h4>Welcome to Jekyll!</h4>
+                <div class="uk-visible@s uk-text-muted uk-text-small"><p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+</div>
+                <div><a class="remove-underline link-dark hvr-back" href="/welcome-to-jekyll/">&larr; Previous</a></div>
+            
         </div>
         <div>
-            
-                <h4>Introducing AireGlu adapters</h4>
-                <div class="uk-visible@s uk-text-muted uk-text-small"><p>In the upcoming AireGlu v1.23.0 release we will be introducing new functionality to greatly increase the extensibility of the platform. Using AireGlu Adapters, you will be able to implement custom task behaviours as code plugins. This will allow your technical staff to create integration adapters that can access all of the power and flexibility of the C# language, and associated libraries.</p>
-</div>
-                <div class="uk-text-right"><a class="remove-underline link-dark hvr-forward" href="/adapters/">Next &rarr;</a></div>
             
         </div>
     </div>

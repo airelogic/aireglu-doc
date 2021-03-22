@@ -9,7 +9,7 @@
 <title>Getting started with aireglu | AireGlu Docs</title>
 <meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Getting started with aireglu" />
-<meta name="author" content="Anton" />
+<meta name="author" content="Anton, Joshua Moon" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Introducing the dashboard The dashboard is the first page you’ll encounter upong logging in. It will show you:" />
 <meta property="og:description" content="Introducing the dashboard The dashboard is the first page you’ll encounter upong logging in. It will show you:" />
@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://docs.aireglu.com/docs/getting-started/" />
 <meta property="og:site_name" content="AireGlu Docs" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-03-10T15:32:50+00:00" />
+<meta property="article:published_time" content="2021-03-22T14:09:12+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Getting started with aireglu" />
 <script type="application/ld+json">
-{"description":"Introducing the dashboard The dashboard is the first page you’ll encounter upong logging in. It will show you:","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/getting-started/","headline":"Getting started with aireglu","dateModified":"2021-03-10T15:32:50+00:00","datePublished":"2021-03-10T15:32:50+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/getting-started/"},"author":{"@type":"Person","name":"Anton"},"@context":"https://schema.org"}</script>
+{"description":"Introducing the dashboard The dashboard is the first page you’ll encounter upong logging in. It will show you:","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/getting-started/","headline":"Getting started with aireglu","dateModified":"2021-03-22T14:09:12+00:00","datePublished":"2021-03-22T14:09:12+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/getting-started/"},"author":{"@type":"Person","name":"Anton, Joshua Moon"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.aireglu.com/assets/posts/"/>
@@ -180,9 +180,9 @@
 
 
 
-<time datetime="2021-03-10T15:32:50+00:00" itemprop="datePublished">
+<time datetime="2021-03-22T14:09:12+00:00" itemprop="datePublished">
     
-    Mar 10, 2021
+    Mar 22, 2021
 </time>
 
                     </div>
@@ -196,6 +196,43 @@ The dashboard is the first page you’ll encounter upong logging in. It will sho
   <li>Statistics on usage</li>
   <li>Any errors</li>
 </ul>
+
+<h2 id="your-first-endpoint">Your first Endpoint</h2>
+<p>Endpoints in AireGlu are where the magic happens. At the most basic level they accept data, then do something with it. This could be as simple as sending an email, or as a complex multi-system processing task.</p>
+
+<p>To keep things simple, for your first endpoint we’ll take in some data and use it to create and send an email. Head over to the Endpoints page using the top menu, and click the large plus button at the top to add a new endpoint.</p>
+
+<p><img src="/assets/img/simple-email/define-endpoint.png" alt="Endpoints" /></p>
+
+<p>The first step is to define our endpoint name and tasks it will perform. We’ll go through and add details to these tasks later. The Endpoint Name is important. This should be descriptive, but not too long because it’s used in the url for the endpoint. Task names should also be descriptive for your reference later. In our case, we’ll use <code class="language-plaintext highlighter-rouge">email-test</code> as an endpoint name. We also create a single Email type task called <code class="language-plaintext highlighter-rouge">Send an Email</code>.  Hit the Next button at the bottom to continue.</p>
+
+<p><img src="/assets/img/simple-email/define-input.png" alt="Endpoints" /></p>
+
+<p>Our next step is to define our input data. You can type this yourself, or copy and paste the output of your application. For this, we only need something simple, so paste the following  into the left side. You should ensure that the format selected is JSON.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+	</span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="p">,</span><span class="w">
+	</span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john@example.com"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Hit the Next button when you’re ready.</p>
+
+<p><img src="/assets/img/simple-email/define-email.png" alt="Endpoints" /></p>
+
+<p>Now we define our email. Click into the To textbox, and then click the left arrow next to <code class="language-plaintext highlighter-rouge">email</code> on the right. This will tell AireGlu that you want to use the email field from our input data as the recipient. Add a subject, and the message of your email. In both of these fields you can click the arrow next to a field to add that data. Add the <code class="language-plaintext highlighter-rouge">name</code> field to the body to give the message a personal feel.</p>
+
+<p>Scroll down and click Next when you’re done.</p>
+
+<p><img src="/assets/img/simple-email/fin.png" alt="Endpoints" /></p>
+
+<p>Finally, we’re ready to deploy. Make a note of the Endpoint URL - you’ll need to have your app point at this. Select your environments, and click Save &amp; Deploy to finish!</p>
+
+<p><img src="/assets/img/simple-email/email.png" alt="Endpoints" /></p>
+
+<p>Use your app to send your data to your new Endpoint, and then check your email! Congratulations on completing your first AireGlu Endpoint!</p>
+
+<p>Check out the Endpoints documentation for more detailed examples, and explanations ofthe other tasks and formats you can use.</p>
 
                         <div class="share uk-text-center">
     <a href="https://twitter.com/intent/tweet?text=Getting started with aireglu&url=https://docs.aireglu.com/docs/getting-started/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>

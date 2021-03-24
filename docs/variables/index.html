@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://docs.aireglu.com/docs/variables/" />
 <meta property="og:site_name" content="AireGlu Docs" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-03-24T13:26:05+00:00" />
+<meta property="article:published_time" content="2021-03-24T13:29:46+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Variables" />
 <script type="application/ld+json">
-{"description":"Introduction","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/variables/","headline":"Variables","dateModified":"2021-03-24T13:26:05+00:00","datePublished":"2021-03-24T13:26:05+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/variables/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
+{"description":"Introduction","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/variables/","headline":"Variables","dateModified":"2021-03-24T13:29:46+00:00","datePublished":"2021-03-24T13:29:46+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/variables/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.aireglu.com/assets/posts/"/>
@@ -265,7 +265,7 @@
 
 
 
-<time datetime="2021-03-24T13:26:05+00:00" itemprop="datePublished">
+<time datetime="2021-03-24T13:29:46+00:00" itemprop="datePublished">
     
     Mar 24, 2021
 </time>
@@ -311,11 +311,13 @@ Values in this scope are available only to the specified endpoint, regardless of
 
 <h3 id="endpoint-environment">Endpoint Environment</h3>
 <p><em>priority 2</em><br />
-The endpoint environment scope allows values to only be passed to Staging or Production endpoints, as specified. It also requires a specific endpoint to be named, and will not provide values to other endpoints. Other versions of the endpoint will also not get these values.</p>
+The endpoint environment scope allows values to only be passed to Staging or Production endpoints, as specified. It also requires a specific endpoint to be named, and will not provide values to other endpoints. Other versions of the endpoint will also not get these values.<br />
+<em>important:</em> If an environment is named in the URL, this will take priority over endpoint versions. Additionally, if no version or environment is named in the url, then production is assumed and also takes priority over endpoint versions.</p>
 
 <h3 id="endpoint-version">Endpoint Version</h3>
 <p><em>priority 1</em><br />
-This is the highest priority scope, and targets a specific version of a specific endpoint. If this scope matches, then it is always used, regardless of any other matching scopes.</p>
+This is the highest priority scope, and targets a specific version of a specific endpoint. If this scope matches, then it is always used, regardless of any other matching scopes.<br />
+<em>important:</em> This scope only applies when a version is specified in the URL of the endpoint.</p>
 
 <h2 id="secret-variables">Secret Variables</h2>
 <p>By clicking the key icon in the value field when creating a variable, you can tell it to reference a Secret instead. This allows you to apply secrets to different scopes in the same way as you would a regular variable. Be aware that this still does not let you see the value of the secret you choose.</p>

@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Endpoints (placeholder) | AireGlu Docs</title>
+<title>Endpoints | AireGlu Docs</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Endpoints (placeholder)" />
+<meta property="og:title" content="Endpoints" />
 <meta name="author" content="Joshua Moon" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="placeholder" />
-<meta property="og:description" content="placeholder" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
 <link rel="canonical" href="https://docs.aireglu.com/docs/endpoints/" />
 <meta property="og:url" content="https://docs.aireglu.com/docs/endpoints/" />
 <meta property="og:site_name" content="AireGlu Docs" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-03-24T13:29:46+00:00" />
+<meta property="article:published_time" content="2021-03-24T14:19:26+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Endpoints (placeholder)" />
+<meta property="twitter:title" content="Endpoints" />
 <script type="application/ld+json">
-{"description":"placeholder","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/endpoints/","headline":"Endpoints (placeholder)","dateModified":"2021-03-24T13:29:46+00:00","datePublished":"2021-03-24T13:29:46+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/endpoints/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
+{"description":"Introduction","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/endpoints/","headline":"Endpoints","dateModified":"2021-03-24T14:19:26+00:00","datePublished":"2021-03-24T14:19:26+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/endpoints/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.aireglu.com/assets/posts/"/>
@@ -148,7 +148,7 @@
                     
                       
                       
-                      <li class="uk-active"><a href="/docs/endpoints/">Endpoints (placeholder)</a></li>
+                      <li class="uk-active"><a href="/docs/endpoints/">Endpoints</a></li>
                     
                       
                       
@@ -254,9 +254,9 @@
 
                 <article class="uk-article">
 
-                    <h1 class="uk-article-title">Endpoints (placeholder)</h1>
+                    <h1 class="uk-article-title">Endpoints</h1>
 
-                    
+                    <p class="subtitle uk-text-lead uk-text-muted">Controlling the Magic</p>
 
                     <div class="uk-article-meta uk-margin-top uk-margin-medium-bottom">
                         
@@ -265,7 +265,7 @@
 
 
 
-<time datetime="2021-03-24T13:29:46+00:00" itemprop="datePublished">
+<time datetime="2021-03-24T14:19:26+00:00" itemprop="datePublished">
     
     Mar 24, 2021
 </time>
@@ -273,10 +273,53 @@
                     </div>
 
                     <div class="article-content">
-                        <p>placeholder</p>
+                        <h2 id="introduction">Introduction</h2>
+
+<p>If AireGlu is our magic, then Endpoints are our Wands. They define and shape the functionality that AireGlu provides. Endpoints are called by external applications, or other endpoints, and perform various tasks as configured. These can range from manipulating and shaping data, or sending an email, to generating a PDF, to contacting other external services. Custom tasks can also be created via the use of <a href="../adapters/">adapters</a>.</p>
+
+<h2 id="creating-an-endpoint">Creating an Endpoint</h2>
+<p><a href="../getting-started/">The Getting Started page has a quick setup for a simple endpoint.</a> You should check there for something simple. This guide will go more in depth about the various options available during creation.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Endpoint Name</code> is required, and forms part of the URL for the endpoint. If <code class="language-plaintext highlighter-rouge">staging.aireglu.com</code> is our AireGlu instance, and <code class="language-plaintext highlighter-rouge">airelogic</code> is our user, then our full endpoint URL would be <code class="language-plaintext highlighter-rouge">https://staging-api.aireglu.com/airelogic/ENDPOINT-NAME</code>. The name only allows letters and hyphens (<code class="language-plaintext highlighter-rouge">-</code>) to be used.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Error Email</code> is optional. It is used to report and issues that the endpoint has during execution.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Endpoint Type</code> can be either HTTP or Fax Receiver. The Fax Receiver option allows for connection to a fax service provided by <a href="https://www.twilio.com/docs/fax/receive">Twilio</a>. The webhook configured in twilio should be set to the Endpoint URL aftrer creation.  An HTTP endpoint can be configured to listen to any HTTP verb (<code class="language-plaintext highlighter-rouge">GET</code>, <code class="language-plaintext highlighter-rouge">POST</code>, <code class="language-plaintext highlighter-rouge">PATCH</code>, <code class="language-plaintext highlighter-rouge">PUT</code>, <code class="language-plaintext highlighter-rouge">DELETE</code>, <code class="language-plaintext highlighter-rouge">HEAD</code>, <code class="language-plaintext highlighter-rouge">OPTIONS</code>, and <code class="language-plaintext highlighter-rouge">TRACE</code>), and works like any other call to an HTTP service.</p>
+
+<h3 id="authentication">Authentication</h3>
+<p>You can require authentication for your endpoint to limit availability and use. The following options are available for authentication:</p>
+<ul>
+  <li>API Key</li>
+  <li>Internal Only</li>
+  <li>JWT</li>
+  <li>IP Address/Range</li>
+  <li>Basic Auth</li>
+</ul>
+
+<p>If multiple authentication methods are defined, then <strong>ALL</strong> of them are required to pass in order to use an endpoint.</p>
+
+<h4 id="api-key">API Key</h4>
+<p>Choosing an API Key is probably the simplest way to add authentication. It allows you to choose a string of text (preferably random) that both AireGlu and the calling application know. This should then be passed in the <code class="language-plaintext highlighter-rouge">X-Api-Key</code> HTTP header on any incoming request This can also be securely saved as a <a href="../secrets/">Secret</a>.</p>
+
+<h4 id="internal-only">Internal Only</h4>
+<p>Internal Only endpoints are accessible only to other endpoints, and cannot be called by external users or applications.</p>
+
+<h4 id="jwt">JWT</h4>
+<p><em>placeholder</em></p>
+
+<h4 id="ip-addressrange">IP Address/Range</h4>
+<p>By limiting to an IP address or range will require the calling device to be on the defined IP. This can be a single IP address (e.g. <code class="language-plaintext highlighter-rouge">192.168.1.152</code>), a range (e.g. <code class="language-plaintext highlighter-rouge">192.168.1.10-192.168.50</code>), or a CIDR block (e.g. <code class="language-plaintext highlighter-rouge">192.168.1.0/24</code>). You can provide multiple sets for allowing different networks or specific devices to access the endpoint.</p>
+
+<h4 id="basic-auth">Basic Auth</h4>
+<p><em>plceholder</em></p>
+
+<h3 id="tasks">Tasks</h3>
+<p>Tasks make up the meat of the Endpoint. They are responsible for the processing that goes on. <a href="../tasks/">Tasks are covered in detail here.</a></p>
+
+<p><code class="language-plaintext highlighter-rouge">Stop on Task Failure</code> allows you to stop running the endpoint when a task fails to complete successfully. If this is turned off, then it will ignore failed tasks, and continue to process each subsequent task. Be aware this may cause unpredictable behaviour or more failures if those tasks depend on the output of the failed task.</p>
 
                         <div class="share uk-text-center">
-    <a href="https://twitter.com/intent/tweet?text=Endpoints (placeholder)&url=https://docs.aireglu.com/docs/endpoints/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
+    <a href="https://twitter.com/intent/tweet?text=Endpoints&url=https://docs.aireglu.com/docs/endpoints/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
     <a  class="uk-margin-small-left" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.aireglu.com%2Fdocs%2Fendpoints%2F" rel="nofollow" target="_blank" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span data-uk-icon="icon: facebook; ratio: 1.2"></span></a>
 </div>
 
@@ -581,7 +624,7 @@
         
           
           
-          <li class="uk-active"><a href="/docs/endpoints/">Endpoints (placeholder)</a></li>
+          <li class="uk-active"><a href="/docs/endpoints/">Endpoints</a></li>
         
           
           

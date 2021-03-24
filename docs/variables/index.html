@@ -11,17 +11,17 @@
 <meta property="og:title" content="Variables" />
 <meta name="author" content="Joshua Moon" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="placeholder" />
-<meta property="og:description" content="placeholder" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
 <link rel="canonical" href="https://docs.aireglu.com/docs/variables/" />
 <meta property="og:url" content="https://docs.aireglu.com/docs/variables/" />
 <meta property="og:site_name" content="AireGlu Docs" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-03-24T11:56:59+00:00" />
+<meta property="article:published_time" content="2021-03-24T12:42:58+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Variables" />
 <script type="application/ld+json">
-{"description":"placeholder","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/variables/","headline":"Variables","dateModified":"2021-03-24T11:56:59+00:00","datePublished":"2021-03-24T11:56:59+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/variables/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
+{"description":"Introduction","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/variables/","headline":"Variables","dateModified":"2021-03-24T12:42:58+00:00","datePublished":"2021-03-24T12:42:58+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/variables/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.aireglu.com/assets/posts/"/>
@@ -261,7 +261,7 @@
 
 
 
-<time datetime="2021-03-24T11:56:59+00:00" itemprop="datePublished">
+<time datetime="2021-03-24T12:42:58+00:00" itemprop="datePublished">
     
     Mar 24, 2021
 </time>
@@ -269,7 +269,52 @@
                     </div>
 
                     <div class="article-content">
-                        <p>placeholder</p>
+                        <h2 id="introduction">Introduction</h2>
+
+<p><img src="/assets/img/variables.png" alt="variables" /></p>
+
+<p>Variables are, like secrets, a set of key-value data pairs for use in endpoint tasks. Unlike secrets however, they are not private and not protected. This means that they can be viewed, and are unsuitable for sensitive data. Additionally, they can be set with multiple scopes, allowing different conditions to access different data for the same variable.</p>
+
+<p>Adding a new variable is accomplished by clicking the large <code class="language-plaintext highlighter-rouge">+</code> button at the top of the screen, entering a name, and at least one Scope (see below), followed by hitting Save.</p>
+
+<h2 id="scopes">Scopes</h2>
+<p>Scopes allow for different values to be presented based on the context. The following scopes are currently available to variables:</p>
+<ul>
+  <li>System</li>
+  <li>Tenant</li>
+  <li>Endpoint</li>
+  <li>Endpoint Environment</li>
+  <li>Endpoint Version</li>
+</ul>
+
+<p>If multiple scopes are added, they are attempted in order with Endpoint Version having highest priority for a match, and System having lowest.</p>
+
+<p><img src="/assets/img/variable-scopes.png" alt="variable scopes" /></p>
+
+<p>Using the above configuration as our example, if the Endpoint we run is <code class="language-plaintext highlighter-rouge">magic</code>, our <code class="language-plaintext highlighter-rouge">test</code> variable will result in <code class="language-plaintext highlighter-rouge">value 1</code>. This is because Tenant is the only scope that matches this endpoint, with the other scopes expecting the <code class="language-plaintext highlighter-rouge">spell</code> endpoint. If however, version 1 of our <code class="language-plaintext highlighter-rouge">spell</code> endpoint is in production, and we access that, then we can expect to get <code class="language-plaintext highlighter-rouge">value 4</code>. This is because Endpoint Version has the highest priority, even though all of the scopes match.</p>
+
+<h3 id="system">System</h3>
+<p><em>priority 5</em><br />
+System scoped variables are not definable directly by a user, and instead are specified in config files for the AireGlu install itself. This scope has the lowest priority in the chain.</p>
+
+<h3 id="tenant">Tenant</h3>
+<p><em>priority 4</em><br />
+A tenant-scoped value is accessible to all endpoints on the current account.</p>
+
+<h3 id="endpoint">Endpoint</h3>
+<p><em>priority 3</em><br />
+Values in this scope are available only to the specified endpoint, regardless of version or environment.</p>
+
+<h3 id="endpoint-environment">Endpoint Environment</h3>
+<p><em>priority 2</em><br />
+The endpoint environment scope allows values to only be passed to Staging or Production endpoints, as specified. It also requires a specific endpoint to be named, and will not provide values to other endpoints. Other versions of the endpoint will also not get these values.</p>
+
+<h3 id="endpoint-version">Endpoint Version</h3>
+<p><em>priority 1</em><br />
+This is the highest priority scope, and targets a specific version of a specific endpoint. If this scope matches, then it is always used, regardless of any other matching scopes.</p>
+
+<h2 id="secret-variables">Secret Variables</h2>
+<p>By clicking the key icon in the value field when creating a variable, you can tell it to reference a Secret instead. This allows you to apply secrets to different scopes in the same way as you would a regular variable. Be aware that this still does not let you see the value of the secret you choose.</p>
 
                         <div class="share uk-text-center">
     <a href="https://twitter.com/intent/tweet?text=Variables&url=https://docs.aireglu.com/docs/variables/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>

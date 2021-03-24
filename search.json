@@ -5,7 +5,15 @@
       "category" : "",
       "tags"     : "Extensibility, Advanced, Integration",
       "url"      : "/docs/adapters/",
-      "date"     : "2021-03-23 12:38:54 +0000"
+      "date"     : "2021-03-24 11:37:46 +0000"
+    } ,
+  
+    {
+      "title"    : "Dashboard",
+      "category" : "",
+      "tags"     : "data, variables, global",
+      "url"      : "/docs/dashboard/",
+      "date"     : "2021-03-24 11:37:46 +0000"
     } ,
   
     {
@@ -13,7 +21,15 @@
       "category" : "",
       "tags"     : "featured",
       "url"      : "/docs/deployment-process/",
-      "date"     : "2021-03-23 12:38:54 +0000"
+      "date"     : "2021-03-24 11:37:46 +0000"
+    } ,
+  
+    {
+      "title"    : "Endpoints",
+      "category" : "",
+      "tags"     : "data, variables, global",
+      "url"      : "/docs/endpoints/",
+      "date"     : "2021-03-24 11:37:46 +0000"
     } ,
   
     {
@@ -21,7 +37,7 @@
       "category" : "",
       "tags"     : "endpoints, tasks, functions",
       "url"      : "/docs/endpoints/custom-functions/",
-      "date"     : "2021-03-23 12:38:54 +0000"
+      "date"     : "2021-03-24 11:37:46 +0000"
     } ,
   
     {
@@ -29,7 +45,31 @@
       "category" : "",
       "tags"     : "endpoints, tasks",
       "url"      : "/docs/endpoints/tasks/",
-      "date"     : "2021-03-23 12:38:54 +0000"
+      "date"     : "2021-03-24 11:37:46 +0000"
+    } ,
+  
+    {
+      "title"    : "Email Task",
+      "category" : "",
+      "tags"     : "endpoints, tasks, http, email, smtp, pop3",
+      "url"      : "/docs/endpoints/tasks/email/",
+      "date"     : "2021-03-24 11:37:46 +0000"
+    } ,
+  
+    {
+      "title"    : "Fax Task",
+      "category" : "",
+      "tags"     : "endpoints, tasks, http, request",
+      "url"      : "/docs/endpoints/tasks/fax/",
+      "date"     : "2021-03-24 11:37:46 +0000"
+    } ,
+  
+    {
+      "title"    : "HTTP Redirect",
+      "category" : "",
+      "tags"     : "endpoints, tasks, http, response, redirect",
+      "url"      : "/docs/endpoints/tasks/http-redirect/",
+      "date"     : "2021-03-24 11:37:46 +0000"
     } ,
   
     {
@@ -37,7 +77,63 @@
       "category" : "",
       "tags"     : "endpoints, tasks, http, request",
       "url"      : "/docs/endpoints/tasks/http-request/",
-      "date"     : "2021-03-23 12:38:54 +0000"
+      "date"     : "2021-03-24 11:37:46 +0000"
+    } ,
+  
+    {
+      "title"    : "HTTP Response Handler",
+      "category" : "",
+      "tags"     : "endpoints, tasks, http, request",
+      "url"      : "/docs/endpoints/tasks/http-response-handler/",
+      "date"     : "2021-03-24 11:37:46 +0000"
+    } ,
+  
+    {
+      "title"    : "HTTP Response",
+      "category" : "",
+      "tags"     : "endpoints, tasks, http, request",
+      "url"      : "/docs/endpoints/tasks/http-response/",
+      "date"     : "2021-03-24 11:37:46 +0000"
+    } ,
+  
+    {
+      "title"    : "Job Task",
+      "category" : "",
+      "tags"     : "endpoints, tasks, http, request",
+      "url"      : "/docs/endpoints/tasks/job/",
+      "date"     : "2021-03-24 11:37:46 +0000"
+    } ,
+  
+    {
+      "title"    : "Mapping Task",
+      "category" : "",
+      "tags"     : "endpoints, tasks, http, request",
+      "url"      : "/docs/endpoints/tasks/mapping/",
+      "date"     : "2021-03-24 11:37:46 +0000"
+    } ,
+  
+    {
+      "title"    : "MESH Message Task",
+      "category" : "",
+      "tags"     : "endpoints, tasks, http, request",
+      "url"      : "/docs/endpoints/tasks/mesh-message/",
+      "date"     : "2021-03-24 11:37:46 +0000"
+    } ,
+  
+    {
+      "title"    : "PDF Task",
+      "category" : "",
+      "tags"     : "endpoints, tasks, http, request",
+      "url"      : "/docs/endpoints/tasks/pdf/",
+      "date"     : "2021-03-24 11:37:46 +0000"
+    } ,
+  
+    {
+      "title"    : "SMS Task",
+      "category" : "",
+      "tags"     : "endpoints, tasks, http, request",
+      "url"      : "/docs/endpoints/tasks/sms/",
+      "date"     : "2021-03-24 11:37:46 +0000"
     } ,
   
     {
@@ -45,7 +141,31 @@
       "category" : "",
       "tags"     : "featured",
       "url"      : "/docs/getting-started/",
-      "date"     : "2021-03-23 12:38:54 +0000"
+      "date"     : "2021-03-24 11:37:46 +0000"
+    } ,
+  
+    {
+      "title"    : "Jobs",
+      "category" : "",
+      "tags"     : "data, variables, global",
+      "url"      : "/docs/jobs/",
+      "date"     : "2021-03-24 11:37:46 +0000"
+    } ,
+  
+    {
+      "title"    : "Repositories",
+      "category" : "",
+      "tags"     : "data, variables, global",
+      "url"      : "/docs/repositories/",
+      "date"     : "2021-03-24 11:37:46 +0000"
+    } ,
+  
+    {
+      "title"    : "Retrievers",
+      "category" : "",
+      "tags"     : "data, variables, global",
+      "url"      : "/docs/retrievers/",
+      "date"     : "2021-03-24 11:37:46 +0000"
     } ,
   
     {
@@ -53,7 +173,7 @@
       "category" : "",
       "tags"     : "secrets, data, global, variables",
       "url"      : "/docs/secrets/",
-      "date"     : "2021-03-23 12:38:54 +0000"
+      "date"     : "2021-03-24 11:37:46 +0000"
     } ,
   
     {
@@ -61,7 +181,7 @@
       "category" : "",
       "tags"     : "data, variables, global",
       "url"      : "/docs/variables/",
-      "date"     : "2021-03-23 12:38:54 +0000"
+      "date"     : "2021-03-24 11:37:46 +0000"
     } 
   
 ]

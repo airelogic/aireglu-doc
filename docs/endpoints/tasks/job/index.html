@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Job Task (placeholder) | AireGlu Docs</title>
+<title>Job Task | AireGlu Docs</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Job Task (placeholder)" />
+<meta property="og:title" content="Job Task" />
 <meta name="author" content="Joshua Moon" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="placeholder" />
-<meta property="og:description" content="placeholder" />
+<meta name="description" content="The Job task is much like it’s cousin, the Jobs page, but has the ability to create and remove jobs from within an Endpoint instead of manually. This allows you to automatically create or delete jobs as needed." />
+<meta property="og:description" content="The Job task is much like it’s cousin, the Jobs page, but has the ability to create and remove jobs from within an Endpoint instead of manually. This allows you to automatically create or delete jobs as needed." />
 <link rel="canonical" href="https://docs.aireglu.com/docs/endpoints/tasks/job/" />
 <meta property="og:url" content="https://docs.aireglu.com/docs/endpoints/tasks/job/" />
 <meta property="og:site_name" content="AireGlu Docs" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-03-25T11:34:18+00:00" />
+<meta property="article:published_time" content="2021-03-25T12:25:21+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Job Task (placeholder)" />
+<meta property="twitter:title" content="Job Task" />
 <script type="application/ld+json">
-{"description":"placeholder","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/endpoints/tasks/job/","headline":"Job Task (placeholder)","dateModified":"2021-03-25T11:34:18+00:00","datePublished":"2021-03-25T11:34:18+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/endpoints/tasks/job/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
+{"description":"The Job task is much like it’s cousin, the Jobs page, but has the ability to create and remove jobs from within an Endpoint instead of manually. This allows you to automatically create or delete jobs as needed.","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/endpoints/tasks/job/","headline":"Job Task","dateModified":"2021-03-25T12:25:21+00:00","datePublished":"2021-03-25T12:25:21+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/endpoints/tasks/job/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.aireglu.com/assets/posts/"/>
@@ -156,7 +156,7 @@
                     
                       
                       
-                      <li class=""><a href="/docs/jobs/">Jobs (placeholder)</a></li>
+                      <li class=""><a href="/docs/jobs/">Jobs</a></li>
                     
                       
                       
@@ -201,7 +201,7 @@
                     
                       
                       
-                      <li class="uk-active"><a href="/docs/endpoints/tasks/job/">Job Task (placeholder)</a></li>
+                      <li class="uk-active"><a href="/docs/endpoints/tasks/job/">Job Task</a></li>
                     
                       
                       
@@ -263,7 +263,7 @@
 
                 <article class="uk-article">
 
-                    <h1 class="uk-article-title">Job Task (placeholder)</h1>
+                    <h1 class="uk-article-title">Job Task</h1>
 
                     
 
@@ -274,7 +274,7 @@
 
 
 
-<time datetime="2021-03-25T11:34:18+00:00" itemprop="datePublished">
+<time datetime="2021-03-25T12:25:21+00:00" itemprop="datePublished">
     
     Mar 25, 2021
 </time>
@@ -282,10 +282,22 @@
                     </div>
 
                     <div class="article-content">
-                        <p><em>placeholder</em></p>
+                        <p>The Job task is much like it’s cousin, the <a href="../../../jobs">Jobs page</a>, but has the ability to create and remove jobs from within an Endpoint instead of manually. This allows you to automatically create or delete jobs as needed.</p>
+
+<h2 id="creating-a-job">Creating a job</h2>
+<p><img src="/assets/img/endpoint-tasks/job-data.png" alt="Creating a job" /><br />
+To create a job, ensure <code class="language-plaintext highlighter-rouge">Create</code> is the selected option. From here you can name the job, select the endpoint you want to run, what data it should have, and set the schedule. You can also set <code class="language-plaintext highlighter-rouge">Disable on failure</code>, to turn the job off if it doesn’t work. You can always turn it back on manually later. When defining the job name, you should try and ensure it will be unique. The name and the endpoint data can both accept fields from the context panel.</p>
+
+<p><img src="/assets/img/endpoint-tasks/job-schedule.png" alt="Creating a job" /><br />
+For setting the schedule, you can either use the wizard options to set a pattern, or use a <a href="https://en.wikipedia.org/wiki/Cron">cron expression</a>. Cron expressions are in the standard Linux format. For advanced use cases, you can define the schedule using fields from the Context panel as well.</p>
+
+<p>When you’re done, simply click Next to go to your next task.</p>
+
+<h2 id="deleting-a-job">Deleting a job</h2>
+<p>To remove a job is pretty simple. All you need to do is choose <code class="language-plaintext highlighter-rouge">Remove</code> as your option, and enter the job name. Like creating a job, this can include data fields from the Context panel, and should be the name of the job you want to delete.</p>
 
                         <div class="share uk-text-center">
-    <a href="https://twitter.com/intent/tweet?text=Job Task (placeholder)&url=https://docs.aireglu.com/docs/endpoints/tasks/job/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
+    <a href="https://twitter.com/intent/tweet?text=Job Task&url=https://docs.aireglu.com/docs/endpoints/tasks/job/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
     <a  class="uk-margin-small-left" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.aireglu.com%2Fdocs%2Fendpoints%2Ftasks%2Fjob%2F" rel="nofollow" target="_blank" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span data-uk-icon="icon: facebook; ratio: 1.2"></span></a>
 </div>
 
@@ -508,7 +520,7 @@
         
           
           
-          <li class=""><a href="/docs/jobs/">Jobs (placeholder)</a></li>
+          <li class=""><a href="/docs/jobs/">Jobs</a></li>
         
           
           
@@ -553,7 +565,7 @@
         
           
           
-          <li class="uk-active"><a href="/docs/endpoints/tasks/job/">Job Task (placeholder)</a></li>
+          <li class="uk-active"><a href="/docs/endpoints/tasks/job/">Job Task</a></li>
         
           
           

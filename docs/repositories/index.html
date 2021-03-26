@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Repositories (placeholder) | AireGlu Docs</title>
+<title>Repositories | AireGlu Docs</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Repositories (placeholder)" />
+<meta property="og:title" content="Repositories" />
 <meta name="author" content="Joshua Moon" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="placeholder" />
-<meta property="og:description" content="placeholder" />
+<meta name="description" content="Repositories provide a way for you to use your own storage for saving endpoints. This allows for you to handle your own backups, imports, version control, etc right from your favourite Git provider. Some examples of Git providers are GitHub, Bitbucket, and GitLab, although there are many more, including self-hosted options." />
+<meta property="og:description" content="Repositories provide a way for you to use your own storage for saving endpoints. This allows for you to handle your own backups, imports, version control, etc right from your favourite Git provider. Some examples of Git providers are GitHub, Bitbucket, and GitLab, although there are many more, including self-hosted options." />
 <link rel="canonical" href="https://docs.aireglu.com/docs/repositories/" />
 <meta property="og:url" content="https://docs.aireglu.com/docs/repositories/" />
 <meta property="og:site_name" content="AireGlu Docs" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-03-26T09:19:20+00:00" />
+<meta property="article:published_time" content="2021-03-26T12:28:38+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Repositories (placeholder)" />
+<meta property="twitter:title" content="Repositories" />
 <script type="application/ld+json">
-{"description":"placeholder","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/repositories/","headline":"Repositories (placeholder)","dateModified":"2021-03-26T09:19:20+00:00","datePublished":"2021-03-26T09:19:20+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/repositories/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
+{"description":"Repositories provide a way for you to use your own storage for saving endpoints. This allows for you to handle your own backups, imports, version control, etc right from your favourite Git provider. Some examples of Git providers are GitHub, Bitbucket, and GitLab, although there are many more, including self-hosted options.","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/repositories/","headline":"Repositories","dateModified":"2021-03-26T12:28:38+00:00","datePublished":"2021-03-26T12:28:38+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/repositories/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.aireglu.com/assets/posts/"/>
@@ -152,7 +152,7 @@
                     
                       
                       
-                      <li class="uk-active"><a href="/docs/repositories/">Repositories (placeholder)</a></li>
+                      <li class="uk-active"><a href="/docs/repositories/">Repositories</a></li>
                     
                       
                       
@@ -263,9 +263,9 @@
 
                 <article class="uk-article">
 
-                    <h1 class="uk-article-title">Repositories (placeholder)</h1>
+                    <h1 class="uk-article-title">Repositories</h1>
 
-                    
+                    <p class="subtitle uk-text-lead uk-text-muted">Storing the magic</p>
 
                     <div class="uk-article-meta uk-margin-top uk-margin-medium-bottom">
                         
@@ -274,7 +274,7 @@
 
 
 
-<time datetime="2021-03-26T09:19:20+00:00" itemprop="datePublished">
+<time datetime="2021-03-26T12:28:38+00:00" itemprop="datePublished">
     
     Mar 26, 2021
 </time>
@@ -282,10 +282,30 @@
                     </div>
 
                     <div class="article-content">
-                        <p>placeholder</p>
+                        <p>Repositories provide a way for you to use your own storage for saving endpoints. This allows for you to handle your own backups, imports, version control, etc right from your favourite Git provider. Some examples of Git providers are <a href="https://github.com">GitHub</a>, <a href="https://bitbucket.org">Bitbucket</a>, and <a href="https://about.gitlab.com/">GitLab</a>, although there are many more, including self-hosted options.</p>
+
+<h2 id="adding-a-repository">Adding a repository</h2>
+<p><em>placeholer</em></p>
+
+<h3 id="authentication">Authentication</h3>
+<p>it is likely, and reccomended, that your repository requires some form of authentication before it can be used. There are 3 options available to you for this. None, Credentials, and SSH.</p>
+
+<h4 id="none">None</h4>
+<p>While not reccomended, you may use a repository taht does not require any authentication, and is publically readable and writable. There is nothing extra to configure here, but be aware that anyone will be able to see or change your endpoints if they find your repository.</p>
+
+<h4 id="credentials">Credentials</h4>
+<p>Credentials allows for the use of a username and password to login to the repository. AireGlu will act as the user whose credentials have been used, and will appear on the commit history as that user.</p>
+
+<h4 id="ssh">SSH</h4>
+<p>Finally authentication can be completed with the use of a public and private key pair, using SSH. This is the most complex to set up, as it requires generating a key pair, adding the public key to your Git repository, and the private key to AireGlu. It is reccomended to ensure this private key is not used anywhere else for security reasons. The benefit of this approach is that each device that uses SSH to connect can have its own key that can be revoked if it gets compromised, without affecting any of the other devices.</p>
+
+<p><a href="https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account">GitHub</a> and <a href="https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/">Bitbucket</a> both have guides on how to set up a key for your account as examples, but most providers support this feature, and will offer some support in setting it up.</p>
+
+<h2 id="repository-layout">Repository Layout</h2>
+<p><em>placeholer</em></p>
 
                         <div class="share uk-text-center">
-    <a href="https://twitter.com/intent/tweet?text=Repositories (placeholder)&url=https://docs.aireglu.com/docs/repositories/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
+    <a href="https://twitter.com/intent/tweet?text=Repositories&url=https://docs.aireglu.com/docs/repositories/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
     <a  class="uk-margin-small-left" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.aireglu.com%2Fdocs%2Frepositories%2F" rel="nofollow" target="_blank" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span data-uk-icon="icon: facebook; ratio: 1.2"></span></a>
 </div>
 
@@ -597,7 +617,7 @@
         
           
           
-          <li class="uk-active"><a href="/docs/repositories/">Repositories (placeholder)</a></li>
+          <li class="uk-active"><a href="/docs/repositories/">Repositories</a></li>
         
           
           

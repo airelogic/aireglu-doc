@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>HTTP Redirect (placeholder) | AireGlu Docs</title>
+<title>HTTP Redirect | AireGlu Docs</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="HTTP Redirect (placeholder)" />
+<meta property="og:title" content="HTTP Redirect" />
 <meta name="author" content="Joshua Moon" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="placeholder" />
-<meta property="og:description" content="placeholder" />
+<meta name="description" content="You do not typically need to use this task in addition to the HTTP Response task. If you are using both, it is best to set up filters to decide which one is used by the endpoint." />
+<meta property="og:description" content="You do not typically need to use this task in addition to the HTTP Response task. If you are using both, it is best to set up filters to decide which one is used by the endpoint." />
 <link rel="canonical" href="https://docs.aireglu.com/docs/endpoints/tasks/http-redirect/" />
 <meta property="og:url" content="https://docs.aireglu.com/docs/endpoints/tasks/http-redirect/" />
 <meta property="og:site_name" content="AireGlu Docs" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-03-31T10:59:41+00:00" />
+<meta property="article:published_time" content="2021-03-31T11:47:38+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="HTTP Redirect (placeholder)" />
+<meta property="twitter:title" content="HTTP Redirect" />
 <script type="application/ld+json">
-{"description":"placeholder","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/endpoints/tasks/http-redirect/","headline":"HTTP Redirect (placeholder)","dateModified":"2021-03-31T10:59:41+00:00","datePublished":"2021-03-31T10:59:41+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/endpoints/tasks/http-redirect/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
+{"description":"You do not typically need to use this task in addition to the HTTP Response task. If you are using both, it is best to set up filters to decide which one is used by the endpoint.","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/endpoints/tasks/http-redirect/","headline":"HTTP Redirect","dateModified":"2021-03-31T11:47:38+00:00","datePublished":"2021-03-31T11:47:38+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/endpoints/tasks/http-redirect/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.aireglu.com/assets/posts/"/>
@@ -189,7 +189,7 @@
                     
                       
                       
-                      <li class=""><a href="/docs/endpoints/tasks/mesh-message/">MESH Message Task (placeholder)</a></li>
+                      <li class=""><a href="/docs/endpoints/tasks/mesh-message/">MESH Message Task</a></li>
                     
                       
                       
@@ -197,7 +197,7 @@
                     
                       
                       
-                      <li class=""><a href="/docs/endpoints/tasks/sms/">SMS Task (placeholder)</a></li>
+                      <li class=""><a href="/docs/endpoints/tasks/sms/">SMS Task</a></li>
                     
                       
                       
@@ -213,7 +213,7 @@
                     
                       
                       
-                      <li class="uk-active"><a href="/docs/endpoints/tasks/http-redirect/">HTTP Redirect (placeholder)</a></li>
+                      <li class="uk-active"><a href="/docs/endpoints/tasks/http-redirect/">HTTP Redirect</a></li>
                     
                       
                       
@@ -267,7 +267,7 @@
 
                 <article class="uk-article">
 
-                    <h1 class="uk-article-title">HTTP Redirect (placeholder)</h1>
+                    <h1 class="uk-article-title">HTTP Redirect</h1>
 
                     
 
@@ -278,7 +278,7 @@
 
 
 
-<time datetime="2021-03-31T10:59:41+00:00" itemprop="datePublished">
+<time datetime="2021-03-31T11:47:38+00:00" itemprop="datePublished">
     
     Mar 31, 2021
 </time>
@@ -286,10 +286,16 @@
                     </div>
 
                     <div class="article-content">
-                        <p><em>placeholder</em></p>
+                        <p>You do not typically need to use this task in addition to the <a href="../http-response">HTTP Response task.</a> If you are using both, it is best to set up filters to decide which one is used by the endpoint.</p>
+
+<p>The HTTP Redirect task is typically the last task in an endpoint, and is responsible for forwarding the user to a new page or website after the endpoint completes. An example of its use may be sending the user to a Thank You page after they fill out a survey on your website.</p>
+
+<p>This task required a <code class="language-plaintext highlighter-rouge">Redirect URL</code> and a JSON body. The redirect url is where the user will be sent to after the endpoint completes. This should be a full URL, including the <code class="language-plaintext highlighter-rouge">http://</code> or <code class="language-plaintext highlighter-rouge">https://</code> prefix. For example: <code class="language-plaintext highlighter-rouge">https://www.example.com/surveys/thankyou.html</code></p>
+
+<p>In most cases, you can simply use an empty object (<code class="language-plaintext highlighter-rouge">{}</code>) for the body, unless you know that you need to include data here.</p>
 
                         <div class="share uk-text-center">
-    <a href="https://twitter.com/intent/tweet?text=HTTP Redirect (placeholder)&url=https://docs.aireglu.com/docs/endpoints/tasks/http-redirect/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
+    <a href="https://twitter.com/intent/tweet?text=HTTP Redirect&url=https://docs.aireglu.com/docs/endpoints/tasks/http-redirect/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
     <a  class="uk-margin-small-left" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.aireglu.com%2Fdocs%2Fendpoints%2Ftasks%2Fhttp-redirect%2F" rel="nofollow" target="_blank" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span data-uk-icon="icon: facebook; ratio: 1.2"></span></a>
 </div>
 
@@ -554,7 +560,7 @@
         
           
           
-          <li class=""><a href="/docs/endpoints/tasks/mesh-message/">MESH Message Task (placeholder)</a></li>
+          <li class=""><a href="/docs/endpoints/tasks/mesh-message/">MESH Message Task</a></li>
         
           
           
@@ -562,7 +568,7 @@
         
           
           
-          <li class=""><a href="/docs/endpoints/tasks/sms/">SMS Task (placeholder)</a></li>
+          <li class=""><a href="/docs/endpoints/tasks/sms/">SMS Task</a></li>
         
           
           
@@ -578,7 +584,7 @@
         
           
           
-          <li class="uk-active"><a href="/docs/endpoints/tasks/http-redirect/">HTTP Redirect (placeholder)</a></li>
+          <li class="uk-active"><a href="/docs/endpoints/tasks/http-redirect/">HTTP Redirect</a></li>
         
           
           

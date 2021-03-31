@@ -5,7 +5,7 @@
       "category" : "",
       "tags"     : "Extensibility, Advanced, Integration",
       "url"      : "/docs/adapters/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
@@ -13,7 +13,7 @@
       "category" : "",
       "tags"     : "dashboard, statistics",
       "url"      : "/docs/dashboard/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
@@ -21,7 +21,7 @@
       "category" : "",
       "tags"     : "featured",
       "url"      : "/docs/deployment-process/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
@@ -29,7 +29,7 @@
       "category" : "",
       "tags"     : "data, variables, global",
       "url"      : "/docs/endpoints/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
@@ -37,7 +37,7 @@
       "category" : "",
       "tags"     : "endpoints, tasks, functions",
       "url"      : "/docs/endpoints/custom-functions/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
@@ -45,7 +45,7 @@
       "category" : "",
       "tags"     : "endpoints, tasks",
       "url"      : "/docs/endpoints/tasks/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
@@ -53,7 +53,7 @@
       "category" : "",
       "tags"     : "endpoints, tasks, http, email, smtp, pop3",
       "url"      : "/docs/endpoints/tasks/email/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
@@ -61,15 +61,15 @@
       "category" : "",
       "tags"     : "endpoints, tasks, fax",
       "url"      : "/docs/endpoints/tasks/fax/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
-      "title"    : "HTTP Redirect (placeholder)",
+      "title"    : "HTTP Redirect",
       "category" : "",
       "tags"     : "endpoints, tasks, http, response, redirect",
       "url"      : "/docs/endpoints/tasks/http-redirect/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
@@ -77,7 +77,7 @@
       "category" : "",
       "tags"     : "endpoints, tasks, http, request",
       "url"      : "/docs/endpoints/tasks/http-request/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
@@ -85,7 +85,7 @@
       "category" : "",
       "tags"     : "http, response, forward, request",
       "url"      : "/docs/endpoints/tasks/http-response-handler/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
@@ -93,7 +93,7 @@
       "category" : "",
       "tags"     : "endpoints, tasks, http, response",
       "url"      : "/docs/endpoints/tasks/http-response/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
@@ -101,7 +101,7 @@
       "category" : "",
       "tags"     : "endpoints, tasks, http, request",
       "url"      : "/docs/endpoints/tasks/job/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
@@ -109,15 +109,15 @@
       "category" : "",
       "tags"     : "endpoints, tasks, mapping, data, transformation",
       "url"      : "/docs/endpoints/tasks/mapping/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
-      "title"    : "MESH Message Task (placeholder)",
+      "title"    : "MESH Message Task",
       "category" : "",
-      "tags"     : "endpoints, tasks, http, request",
+      "tags"     : "endpoints, tasks, mesh, messaging",
       "url"      : "/docs/endpoints/tasks/mesh-message/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
@@ -125,15 +125,15 @@
       "category" : "",
       "tags"     : "endpoints, tasks, pdf, document",
       "url"      : "/docs/endpoints/tasks/pdf/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
-      "title"    : "SMS Task (placeholder)",
+      "title"    : "SMS Task",
       "category" : "",
-      "tags"     : "endpoints, tasks, http, request",
+      "tags"     : "endpoints, tasks, sms, text, phone",
       "url"      : "/docs/endpoints/tasks/sms/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
@@ -141,7 +141,7 @@
       "category" : "",
       "tags"     : "featured",
       "url"      : "/docs/getting-started/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
@@ -149,7 +149,7 @@
       "category" : "",
       "tags"     : "liquid, fluid, data, templating",
       "url"      : "/docs/guides/liquid/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
@@ -157,7 +157,7 @@
       "category" : "",
       "tags"     : "data, variables, global",
       "url"      : "/docs/jobs/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
@@ -165,7 +165,7 @@
       "category" : "",
       "tags"     : "data, storage, git",
       "url"      : "/docs/repositories/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
@@ -173,7 +173,7 @@
       "category" : "",
       "tags"     : "email, trigger, endpoints",
       "url"      : "/docs/retrievers/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
@@ -181,7 +181,7 @@
       "category" : "",
       "tags"     : "secrets, data, variables",
       "url"      : "/docs/secrets/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } ,
   
     {
@@ -189,7 +189,7 @@
       "category" : "",
       "tags"     : "data, variables, global",
       "url"      : "/docs/variables/",
-      "date"     : "2021-03-31 10:59:41 +0000"
+      "date"     : "2021-03-31 11:47:38 +0000"
     } 
   
 ]

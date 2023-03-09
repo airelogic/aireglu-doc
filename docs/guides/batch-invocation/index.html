@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Fax Task | AireGlu Docs</title>
+<title>Batch Invocation | AireGlu Docs</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Fax Task" />
-<meta name="author" content="Joshua Moon" />
+<meta property="og:title" content="Batch Invocation" />
+<meta name="author" content="Dominic Hui" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="The Fax task allows you to send the contents of a PDF document to a fax machine or other fax receiving service. The PDF may be from the input data, an external service (via HTTP Request task), or the PDF task." />
-<meta property="og:description" content="The Fax task allows you to send the contents of a PDF document to a fax machine or other fax receiving service. The PDF may be from the input data, an external service (via HTTP Request task), or the PDF task." />
-<link rel="canonical" href="https://docs.aireglu.com/docs/endpoints/tasks/fax/" />
-<meta property="og:url" content="https://docs.aireglu.com/docs/endpoints/tasks/fax/" />
+<meta name="description" content="Introduction It is possible to invoke an endpoint multiple times by using AireGlu’s, asynchronous, batch processing functionality." />
+<meta property="og:description" content="Introduction It is possible to invoke an endpoint multiple times by using AireGlu’s, asynchronous, batch processing functionality." />
+<link rel="canonical" href="https://docs.aireglu.com/docs/guides/batch-invocation/" />
+<meta property="og:url" content="https://docs.aireglu.com/docs/guides/batch-invocation/" />
 <meta property="og:site_name" content="AireGlu Docs" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-03-09T12:38:43+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Fax Task" />
+<meta property="twitter:title" content="Batch Invocation" />
 <script type="application/ld+json">
-{"description":"The Fax task allows you to send the contents of a PDF document to a fax machine or other fax receiving service. The PDF may be from the input data, an external service (via HTTP Request task), or the PDF task.","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/endpoints/tasks/fax/","headline":"Fax Task","dateModified":"2023-03-09T12:38:43+00:00","datePublished":"2023-03-09T12:38:43+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/endpoints/tasks/fax/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
+{"description":"Introduction It is possible to invoke an endpoint multiple times by using AireGlu’s, asynchronous, batch processing functionality.","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/guides/batch-invocation/","headline":"Batch Invocation","dateModified":"2023-03-09T12:38:43+00:00","datePublished":"2023-03-09T12:38:43+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/guides/batch-invocation/"},"author":{"@type":"Person","name":"Dominic Hui"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.aireglu.com/assets/posts/"/>
@@ -205,7 +205,7 @@
                     
                       
                       
-                      <li class="uk-active"><a href="/docs/endpoints/tasks/fax/">Fax Task</a></li>
+                      <li class=""><a href="/docs/endpoints/tasks/fax/">Fax Task</a></li>
                     
                       
                       
@@ -271,9 +271,9 @@
 
                 <article class="uk-article">
 
-                    <h1 class="uk-article-title">Fax Task</h1>
+                    <h1 class="uk-article-title">Batch Invocation</h1>
 
-                    
+                    <p class="subtitle uk-text-lead uk-text-muted">Asynchronous batch invocation of AireGlu Endpoints</p>
 
                     <div class="uk-article-meta uk-margin-top uk-margin-medium-bottom">
                         
@@ -290,24 +290,255 @@
                     </div>
 
                     <div class="article-content">
-                        <p>The Fax task allows you to send the contents of a PDF document to a fax machine or other fax receiving service. The PDF may be from the input data, an external service (via <a href="../http-request">HTTP Request task</a>), or the <a href="../pdf">PDF task</a>.</p>
+                        <h2 id="introduction">Introduction</h2>
+<p>It is possible to invoke an endpoint multiple times by using AireGlu’s, asynchronous, batch processing functionality.</p>
 
-<h2 id="sending-a-fax">Sending a Fax</h2>
-
-<p>In order to send a fax, complete the following steps:</p>
-
+<h2 id="simplified-flow">Simplified flow</h2>
 <ul>
-  <li>Enter your name in the <code class="language-plaintext highlighter-rouge">From</code> field</li>
-  <li>Enter recipient’s name in the <code class="language-plaintext highlighter-rouge">To</code> field</li>
-  <li>Enter the Recipient’s fax number in the <code class="language-plaintext highlighter-rouge">Number</code> field</li>
-  <li>Insert the base64 PDF data in the <code class="language-plaintext highlighter-rouge">PDF Attachment</code> field. You can input this from the Context Panel.</li>
-  <li>Optionally, enter a subject line</li>
-  <li>Optionally, enter descriptive text</li>
+  <li>A client makes a request to the AireGlu’s <code class="language-plaintext highlighter-rouge">Async API</code> via <code class="language-plaintext highlighter-rouge">/Api/batch/{username}/{endpointName}/{environmentOrVersion}</code>
+    <ul>
+      <li>This payload will contain the name of the endpoint to be batch invoked, the data to be passed into the endpoint and a <em>callback</em> endpoint to be invoked for each endpoint in the batch that has been processed.</li>
+    </ul>
+  </li>
+  <li>The Async API passes the request to AireGlu’s <code class="language-plaintext highlighter-rouge">Batch Event Handler</code>. The service splits the batch into individual endpoint invocation messages and places each one onto a message queue.</li>
+  <li>AireGlu’s Runtime Service consumes the messages from the queue and invokes each endpoint</li>
+  <li>The result of each endpoint invocation is then placed onto a <em>result</em> queue</li>
+  <li>the Batch Event Handler reads the result of each endpoint invocation and triggers the invocation of the callback endpoint</li>
 </ul>
 
+<p>This diagram shows a simplified view of AireGlu’s asynchonous architecture.</p>
+
+<p><img src="/assets/img/async-aireglu-simplified.png" alt="AsyncAireGlu" /></p>
+
+<h2 id="access-to-this-feature">Access to this feature</h2>
+<p>Your tenant/username must be added to the <code class="language-plaintext highlighter-rouge">ALLOWED_ASYNC_USERS</code> environment variable, you can add multiple users as a semicolon separated list. 
+<code class="language-plaintext highlighter-rouge">ENABLE_ASYNC</code> should be set to <code class="language-plaintext highlighter-rouge">true</code> for your AireGlu deployment.
+You need to add <code class="language-plaintext highlighter-rouge">MESSAGE_QUEUE</code> environment variable indicating which message broker you are using. AireGlu currently provides first class support for RabbitMQ and Azure Service Bus (Amazon MQ for RabbitMQ is also compatible).
+Depending on which message broker you are using, you will also need to supply the message broker connection string.
+<code class="language-plaintext highlighter-rouge">ConnectionStrings__AzureServiceBus / ConnectionStrings__RabbitMq</code></p>
+
+<p>Here is a further breakdown of what the enviroment variables:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ENABLE_ASYNC=true</code> the runtime service will read this variable and subscribe to the necessary queues</li>
+  <li><code class="language-plaintext highlighter-rouge">ALLOWED_ASYNC_USERS</code> determines which tenant/user will be allowed to use the batch invocation feature, this should be supplied as a semicolon separated list</li>
+  <li><code class="language-plaintext highlighter-rouge">MESSAGE_QUEUE</code> indicates which message broker you are using, the options are RabbitMq or AzureServiceBus (if using AmazonMQ for RabbitMQ leave it set to RabbitMq)</li>
+  <li>Depending on which broker you have chosen you will also need to provide a connection string:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ConnectionStrings__AzureServiceBus</code></li>
+      <li><code class="language-plaintext highlighter-rouge">ConnectionStrings__RabbitMq</code> if using Amazon MQ for RabbitMQ use this variable</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">USE_SEPARATE_EXECUTOR_SERVICES=false</code> should be set to false for performance reasons</li>
+</ul>
+
+<h2 id="how-to-invoke">How to invoke</h2>
+<p>There are two methods of interacting with the Async Api Service: swagger or via a http client (e.g. Postman). The following example, demonstrates the process using Swagger.</p>
+
+<p><img src="/assets/img/batch-invoke.png" alt="BatchInvoke" /></p>
+
+<p>In this example we are performing batched invocations of an endpoint named <em>my-batch-endpoint</em> which is deployed to the <code class="language-plaintext highlighter-rouge">production</code> environment. We also provide an optional transaction id (if none is provided AireGlu will automatically create one).</p>
+
+<p>The request body is a JSON object containing:</p>
+<ul>
+  <li>the name of the callback endpoint to be invoked (my-callback)</li>
+  <li><code class="language-plaintext highlighter-rouge">request</code> array containing the required input to be passed into the batched endpoint invocations (in this example <em>my-batch-endpoint</em> will be invoked twice with the input <code class="language-plaintext highlighter-rouge">{ "testInput": "hello" }</code> and <code class="language-plaintext highlighter-rouge">{ "testInput": "world" }</code>)</li>
+  <li>environment or version of the <em>my-callback-endpoint</em> endpoint</li>
+</ul>
+
+<p>With a valid payload, the Async Api Endpoint will respond with a <code class="language-plaintext highlighter-rouge">202 Accepted</code>.</p>
+
+<h2 id="how-authentication-works">How authentication works</h2>
+<p>The endpoint to be invoked via batch, should be  authenticated as you would normally for any other endpoint.
+The callback endpoint will be run by the batch functionality regardless of its authentication status, however, it should have authentication set so that it is protected from someone running it directly.</p>
+
+<h2 id="how-will-i-monitor-the-requests">How will I monitor the requests?</h2>
+<p>Usage data will be populated but it will be very difficult to follow.
+We strongly recommend ensuring that debug mode is turned off for the batch invoke and callback endpoints to minimise the amount of usage data (transaction data) stored when an endpoint is batch-invoked.
+The callback endpoint can be used to collect information about what the outcome of each invocation was.
+When calling the Async API you have the option to supply a batch transaction id (if none is supplied an id is automatically generated), the transaction id is made available in the input of the callback endpoint.</p>
+
+<h2 id="what-issues-might-i-see">What issues might I see?</h2>
+<p>Depending on the number of batch invocations and complexity of the endpoint being batch invoked you may experience slow down to downstream services. We, therefore, recommend that you keep batch and callback endpoints, “light weight” (e.g light on data processing and number of tasks).</p>
+
+<h2 id="queues">Queues</h2>
+<p>On startup the Message Broker Client will set up all the necessary queues and subscribe to them. The queues used for batch invocation are the following:</p>
+
+<ul>
+  <li>batch event</li>
+  <li>endpoint invoke</li>
+  <li>batch result</li>
+  <li>batch callback result</li>
+</ul>
+
+<p>In addition, each queue will have a corrosponding dead-letter queue set up by default, in the event that a message is unable to be proccessed it will enter the dead-leatter queue. You will need to have access to your message broker to view and handle these messages.</p>
+
+<h2 id="example-endpoint-definitions">Example endpoint definitions</h2>
+<p>Here is an example endpoint definition that you can use to experiment with.</p>
+
+<h1 id="batch-endpoint">Batch endpoint</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Versions:
+- Input:
+  Method: POST
+  InputMode: JSON
+  InputSource: Body
+  Schema: &gt;-
+	{
+   	 "$schema": "http://json-schema.org/draft-04/schema#",
+   	 "description": "",
+   	 "type": "object",
+   	 "properties": {
+   		 "test": {
+   			 "type": "string",
+   			 "minLength": 1
+   		 }
+   	 },
+   	 "required": [
+   		 "test"
+   	 ]
+	}
+  XmlSchemas:
+  ErrorEmail: ''
+  StopOnTaskFailure: true
+  Tasks:
+  - Behaviour: Response
+	RequestContext:
+	ResponseHandlerContext:
+	EmailContext:
+	FaxContext:
+	MeshContext:
+	SmsContext:
+	JobContext:
+	ResponseContext:
+  	OutputMode: JSON
+  	MapType: Path
+  	XsltParameters: []
+  	StatusCode: 200
+  	RetainStatusCode: false
+  	Template: &gt;-
+    	{
+   		 "test": "--*test*--"
+    	}
+  	Paths:
+    	test: $.test
+  	PathOrigins: {}
+  	Functions: {}
+  	FunctionLocations:
+	RedirectContext:
+	MappingContext:
+	PdfContext:
+	AdapterContext:
+	SftpContext:
+	JwtContext:
+	Tests: []
+	Filters: []
+	Label: ''
+	DataOrigin: -1
+	UseCRLFLineEndings: false
+  AuthenticationContexts: []
+  Version: 1
+  Active: true
+  PersistTransactionData: false
+Name: batch-test
+Environments:
+  Staging: 1
+  Production: 1
+</code></pre></div></div>
+
+<h1 id="callback-endpoint">Callback endpoint</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Versions:
+- Input: &gt;-
+	{
+   	 "success": true,
+   	 "errors": [],
+   	 "originalInput": {},
+   	 "endpointOutput": {}
+	}
+  Method: POST
+  InputMode: Callback
+  InputSource: Body
+  Schema: &gt;-
+	{
+   	 "$schema": "http://json-schema.org/draft-04/schema#",
+   	 "description": "",
+   	 "type": "object",
+   	 "properties": {
+   		 "success": {
+   			 "type": "boolean"
+   		 },
+   		 "errors": {
+   			 "type": "array",
+   			 "items": {
+   				 "type": "string"
+   			 }
+   		 },
+   		 "originalInput": {
+   			 "type": "object",
+   			 "properties": {},
+   			 "required": []
+   		 },
+   		 "endpointOutput": {
+   			 "type": "object",
+   			 "properties": {},
+   			 "required": []
+   		 }
+   	 },
+   	 "required": [
+   		 "success",
+   		 "originalInput"
+   	 ]
+	}
+  XmlSchemas:
+  ErrorEmail: ''
+  StopOnTaskFailure: true
+  Tasks:
+  - Behaviour: Response
+	RequestContext:
+	ResponseHandlerContext:
+	EmailContext:
+	FaxContext:
+	MeshContext:
+	SmsContext:
+	JobContext:
+	ResponseContext:
+  	OutputMode: JSON
+  	MapType: Path
+  	XsltParameters: []
+  	StatusCode: 200
+  	RetainStatusCode: false
+  	Template: &gt;-
+    	{
+   		 "success": "--*success*--"
+    	}
+  	Paths:
+    	success: $.success
+  	PathOrigins: {}
+  	Functions: {}
+  	FunctionLocations:
+	RedirectContext:
+	MappingContext:
+	PdfContext:
+	AdapterContext:
+	SftpContext:
+	JwtContext:
+	Tests: []
+	Filters: []
+	Label: ''
+	DataOrigin: -1
+	UseCRLFLineEndings: false
+  AuthenticationContexts: []
+  Version: 1
+  Active: true
+  PersistTransactionData: false
+Name: async-callback-test
+Environments:
+  Staging: 1
+  Production: 1
+</code></pre></div></div>
+
                         <div class="share uk-text-center">
-    <a href="https://twitter.com/intent/tweet?text=Fax Task&url=https://docs.aireglu.com/docs/endpoints/tasks/fax/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
-    <a  class="uk-margin-small-left" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.aireglu.com%2Fdocs%2Fendpoints%2Ftasks%2Ffax%2F" rel="nofollow" target="_blank" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span data-uk-icon="icon: facebook; ratio: 1.2"></span></a>
+    <a href="https://twitter.com/intent/tweet?text=Batch Invocation&url=https://docs.aireglu.com/docs/guides/batch-invocation/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
+    <a  class="uk-margin-small-left" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.aireglu.com%2Fdocs%2Fguides%2Fbatch-invocation%2F" rel="nofollow" target="_blank" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span data-uk-icon="icon: facebook; ratio: 1.2"></span></a>
 </div>
 
                     </div>
@@ -364,19 +595,37 @@
 
   
   
-    <ul class="uk-pagination uk-margin-top">
-          
-            
-            
-            <li><a class="hvr-back" href="/docs/endpoints/tasks/job/">&larr; Previous</a></li>
-          
-          
-            
-            
-            <li class="uk-margin-auto-left"><a class="hvr-forward" href="/docs/endpoints/tasks/http-response/">Next &rarr;</a></li>
-          
-    </ul>
-    
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
 
 
                     <div class="uk-margin-large-top">
@@ -470,16 +719,7 @@
     
 
     
-
-    
-
-    
-    
-
-    
-
-    
-        <li><a href="/docs/endpoints/tasks/http-redirect/">HTTP Redirect</a></li>
+        <li><a href="/docs/endpoints/tasks/fax/">Fax Task</a></li>
         
         
             
@@ -590,7 +830,7 @@
         
           
           
-          <li class="uk-active"><a href="/docs/endpoints/tasks/fax/">Fax Task</a></li>
+          <li class=""><a href="/docs/endpoints/tasks/fax/">Fax Task</a></li>
         
           
           

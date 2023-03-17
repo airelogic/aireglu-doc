@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Secrets | AireGlu Docs</title>
+<title>JWT Task | AireGlu Docs</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Secrets" />
-<meta name="author" content="Joshua Moon" />
+<meta property="og:title" content="JWT Task" />
+<meta name="author" content="Andy Goldfinch" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="AireGlu documentation and knowledge-base" />
-<meta property="og:description" content="AireGlu documentation and knowledge-base" />
-<link rel="canonical" href="https://docs.aireglu.com/docs/secrets/" />
-<meta property="og:url" content="https://docs.aireglu.com/docs/secrets/" />
+<meta name="description" content="The JWT task allows you to generate a JWT with customisable headers &amp; payload, with a choice of encryption and/or signing algorithms." />
+<meta property="og:description" content="The JWT task allows you to generate a JWT with customisable headers &amp; payload, with a choice of encryption and/or signing algorithms." />
+<link rel="canonical" href="https://docs.aireglu.com/docs/endpoints/tasks/jwt/" />
+<meta property="og:url" content="https://docs.aireglu.com/docs/endpoints/tasks/jwt/" />
 <meta property="og:site_name" content="AireGlu Docs" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-03-17T15:46:49+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Secrets" />
+<meta property="twitter:title" content="JWT Task" />
 <script type="application/ld+json">
-{"description":"AireGlu documentation and knowledge-base","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/secrets/","headline":"Secrets","dateModified":"2023-03-17T15:46:49+00:00","datePublished":"2023-03-17T15:46:49+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/secrets/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
+{"description":"The JWT task allows you to generate a JWT with customisable headers &amp; payload, with a choice of encryption and/or signing algorithms.","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/endpoints/tasks/jwt/","headline":"JWT Task","dateModified":"2023-03-17T15:46:49+00:00","datePublished":"2023-03-17T15:46:49+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/endpoints/tasks/jwt/"},"author":{"@type":"Person","name":"Andy Goldfinch"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.aireglu.com/assets/posts/"/>
@@ -164,7 +164,7 @@
                     
                       
                       
-                      <li class="uk-active"><a href="/docs/secrets/">Secrets</a></li>
+                      <li class=""><a href="/docs/secrets/">Secrets</a></li>
                     
                       
                       
@@ -225,7 +225,7 @@
                     
                       
                       
-                      <li class=""><a href="/docs/endpoints/tasks/jwt/">JWT Task</a></li>
+                      <li class="uk-active"><a href="/docs/endpoints/tasks/jwt/">JWT Task</a></li>
                     
                       
                       
@@ -275,9 +275,9 @@
 
                 <article class="uk-article">
 
-                    <h1 class="uk-article-title">Secrets</h1>
+                    <h1 class="uk-article-title">JWT Task</h1>
 
-                    <p class="subtitle uk-text-lead uk-text-muted">Private data accessible to endpoint tasks</p>
+                    
 
                     <div class="uk-article-meta uk-margin-top uk-margin-medium-bottom">
                         
@@ -294,15 +294,20 @@
                     </div>
 
                     <div class="article-content">
-                        <p><img src="/assets/img/secrets.png" alt="dashboard" /></p>
+                        <p>The JWT task allows you to generate a JWT with customisable headers &amp; payload, with a choice of encryption and/or signing algorithms.</p>
 
-<p>Secrets are a secure set of key-value pairs that can be references by various tasks. Once added, the content can never be viewed, with only the name, and time added being visible. This holds true even in logs and debug data. If data needs to be updated, e.g. for a password change, the existing secret should be deleted, and a new one created with the same name.</p>
+<h2 id="signed-tokens-rs256--rs512">Signed Tokens (rs256 &amp; rs512)</h2>
+<p>The <code class="language-plaintext highlighter-rouge">rs256</code> &amp; <code class="language-plaintext highlighter-rouge">rs512</code> algorithms will give you an unencrypted token signed using the assymettric RSA algorithm. You should specify the private key in the Signing Secret field, then anyone with the corresponding public key will be able to verify your token.</p>
 
-<p>In order to add a new secret, click the large <code class="language-plaintext highlighter-rouge">+</code> button at the top of the screen, fill in the name (key) and value, and click Save.</p>
+<h2 id="signed--encrypted-tokens-aes128-hs256">Signed &amp; Encrypted Tokens (aes128-hs256)</h2>
+<p>The <code class="language-plaintext highlighter-rouge">aes128-hs256</code> algorithm will give you a token which is first signed using the symmettric HS256 algorithm, then encrypted with AES128. You should specify the 256 bit (32 character) HS256 signing key in the Signing Secret field and the 128 bit (16 character) AES128 encryption key in the Encryption Secret field. Because these are both symmettric algorithms, the same encryption and signing keys must be used to decrypt and verify tokens generated using this algorithm.</p>
+
+<h2 id="unsigned-tokens">Unsigned Tokens</h2>
+<p>The <code class="language-plaintext highlighter-rouge">none</code> algorithm will give you a token which is neither signed nor encrypted.</p>
 
                         <div class="share uk-text-center">
-    <a href="https://twitter.com/intent/tweet?text=Secrets&url=https://docs.aireglu.com/docs/secrets/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
-    <a  class="uk-margin-small-left" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.aireglu.com%2Fdocs%2Fsecrets%2F" rel="nofollow" target="_blank" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span data-uk-icon="icon: facebook; ratio: 1.2"></span></a>
+    <a href="https://twitter.com/intent/tweet?text=JWT Task&url=https://docs.aireglu.com/docs/endpoints/tasks/jwt/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
+    <a  class="uk-margin-small-left" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.aireglu.com%2Fdocs%2Fendpoints%2Ftasks%2Fjwt%2F" rel="nofollow" target="_blank" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span data-uk-icon="icon: facebook; ratio: 1.2"></span></a>
 </div>
 
                     </div>
@@ -332,16 +337,58 @@
 
   
   
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
     <ul class="uk-pagination uk-margin-top">
           
             
             
-            <li><a class="hvr-back" href="/docs/receivers/">&larr; Previous</a></li>
+            <li><a class="hvr-back" href="/docs/endpoints/tasks/pdf/">&larr; Previous</a></li>
           
           
             
             
-            <li class="uk-margin-auto-left"><a class="hvr-forward" href="/docs/variables/">Next &rarr;</a></li>
+            <li class="uk-margin-auto-left"><a class="hvr-forward" href="/docs/endpoints/custom-functions/">Next &rarr;</a></li>
           
     </ul>
     
@@ -390,7 +437,16 @@
     
 
     
-        <li><a href="/docs/endpoints/">Endpoints</a></li>
+
+    
+
+    
+    
+
+    
+
+    
+        <li><a href="/docs/endpoints/custom-functions/">Custom Functions</a></li>
         
         
     
@@ -403,97 +459,7 @@
     
 
     
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-        <li><a href="/docs/endpoints/tasks/mapping/">Mapping Task</a></li>
+        <li><a href="/docs/endpoints/tasks/">Endpoint Tasks</a></li>
         
         
     
@@ -506,52 +472,7 @@
     
 
     
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-        <li><a href="/docs/guides/forms4health/">forms4health Integration</a></li>
+        <li><a href="/docs/endpoints/tasks/email/">Email Task</a></li>
         
         
     
@@ -564,7 +485,7 @@
     
 
     
-        <li><a href="/docs/guides/liquid/">Liquid Templating</a></li>
+        <li><a href="/docs/endpoints/tasks/fax/">Fax Task</a></li>
         
         
             
@@ -634,7 +555,7 @@
         
           
           
-          <li class="uk-active"><a href="/docs/secrets/">Secrets</a></li>
+          <li class=""><a href="/docs/secrets/">Secrets</a></li>
         
           
           
@@ -695,7 +616,7 @@
         
           
           
-          <li class=""><a href="/docs/endpoints/tasks/jwt/">JWT Task</a></li>
+          <li class="uk-active"><a href="/docs/endpoints/tasks/jwt/">JWT Task</a></li>
         
           
           

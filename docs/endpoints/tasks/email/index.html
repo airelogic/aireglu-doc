@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://docs.aireglu.com/docs/endpoints/tasks/email/" />
 <meta property="og:site_name" content="AireGlu Docs" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-04-03T09:07:39+00:00" />
+<meta property="article:published_time" content="2023-04-03T09:11:43+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Email Task" />
 <script type="application/ld+json">
-{"description":"The Email task, as you would expect, is used to create and send emails.","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/endpoints/tasks/email/","headline":"Email Task","dateModified":"2023-04-03T09:07:39+00:00","datePublished":"2023-04-03T09:07:39+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/endpoints/tasks/email/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
+{"description":"The Email task, as you would expect, is used to create and send emails.","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/endpoints/tasks/email/","headline":"Email Task","dateModified":"2023-04-03T09:11:43+00:00","datePublished":"2023-04-03T09:11:43+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/endpoints/tasks/email/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.aireglu.com/assets/posts/"/>
@@ -286,7 +286,7 @@
 
 
 
-<time datetime="2023-04-03T09:07:39+00:00" itemprop="datePublished">
+<time datetime="2023-04-03T09:11:43+00:00" itemprop="datePublished">
     
     Apr 3, 2023
 </time>
@@ -299,7 +299,7 @@
 <h2 id="creating-a-simple-email">Creating a simple email</h2>
 <p>A basic email needs just 3 pieces of information. The recipient, the subject, and (optionally) the message. While possible to send blank emails, this is not recommended.</p>
 
-<p>The recipient’s email address should be added to the <code class="language-plaintext highlighter-rouge">To</code> field, and the subject added to the <code class="language-plaintext highlighter-rouge">Subject</code> field. Please be aware that you cannot add <code class="language-plaintext highlighter-rouge">CC</code> or <code class="language-plaintext highlighter-rouge">BCC</code> recipients to emails sent via AireGlu. The message, or body of the email can be created using the Text Editor. If you need to send this as a Plaintext email, untick the <code class="language-plaintext highlighter-rouge">HTML Body</code> checkbox.</p>
+<p>The recipient’s email address should be added to the <code class="language-plaintext highlighter-rouge">To</code> or <code class="language-plaintext highlighter-rouge">BCC</code> field, and the subject added to the <code class="language-plaintext highlighter-rouge">Subject</code> field. You may add multiple email addresses separated by semi-colons. The message, or body of the email can be created using the Text Editor. If you need to send this as a Plaintext email, untick the <code class="language-plaintext highlighter-rouge">HTML Body</code> checkbox.</p>
 
 <h2 id="attachments">Attachments</h2>
 <p>You can add an attachment to the email in one of two ways. You can either use the base64 version of a file (e.g. the output of the <a href="../pdf">PDF Task</a>), or upload a file that’s reused each time an email is sent. If you are using the base64 option, you should specify the MIME type and filename. If we are attaching a PDF document, these values might be set to <code class="language-plaintext highlighter-rouge">application/pdf</code> and <code class="language-plaintext highlighter-rouge">results.pdf</code> respectively. <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types">A list of common MIME types can be found here.</a></p>

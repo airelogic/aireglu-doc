@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>forms4health Integration | AireGlu Docs</title>
+<title>Batch Invocation | AireGlu Docs</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="forms4health Integration" />
-<meta name="author" content="Joshua Moon" />
+<meta property="og:title" content="Batch Invocation" />
+<meta name="author" content="Dominic Hui" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="This guide will cover the steps needed to create an endpoint for a simple form, then use some data from that form to send an email to the user. We will assume that you have already created the form in forms4health (See the forms4health documentation if you are unsure how to do this.)" />
-<meta property="og:description" content="This guide will cover the steps needed to create an endpoint for a simple form, then use some data from that form to send an email to the user. We will assume that you have already created the form in forms4health (See the forms4health documentation if you are unsure how to do this.)" />
-<link rel="canonical" href="https://docs.aireglu.com/docs/guides/forms4health/" />
-<meta property="og:url" content="https://docs.aireglu.com/docs/guides/forms4health/" />
+<meta name="description" content="Introduction It is possible to invoke an endpoint multiple times by using AireGlu’s, asynchronous, batch processing functionality." />
+<meta property="og:description" content="Introduction It is possible to invoke an endpoint multiple times by using AireGlu’s, asynchronous, batch processing functionality." />
+<link rel="canonical" href="https://docs.aireglu.com/docs/guides/batchInvocation/" />
+<meta property="og:url" content="https://docs.aireglu.com/docs/guides/batchInvocation/" />
 <meta property="og:site_name" content="AireGlu Docs" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-05-24T11:00:25+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="forms4health Integration" />
+<meta property="twitter:title" content="Batch Invocation" />
 <script type="application/ld+json">
-{"description":"This guide will cover the steps needed to create an endpoint for a simple form, then use some data from that form to send an email to the user. We will assume that you have already created the form in forms4health (See the forms4health documentation if you are unsure how to do this.)","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/guides/forms4health/","headline":"forms4health Integration","dateModified":"2023-05-24T11:00:25+00:00","datePublished":"2023-05-24T11:00:25+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/guides/forms4health/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
+{"description":"Introduction It is possible to invoke an endpoint multiple times by using AireGlu’s, asynchronous, batch processing functionality.","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/guides/batchInvocation/","headline":"Batch Invocation","dateModified":"2023-05-24T11:00:25+00:00","datePublished":"2023-05-24T11:00:25+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/guides/batchInvocation/"},"author":{"@type":"Person","name":"Dominic Hui"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.aireglu.com/assets/posts/"/>
@@ -246,7 +246,7 @@
                     
                       
                       
-                      <li class="uk-active"><a href="/docs/guides/forms4health/">forms4health Integration</a></li>
+                      <li class=""><a href="/docs/guides/forms4health/">forms4health Integration</a></li>
                     
                     </ul>
                     
@@ -275,9 +275,9 @@
 
                 <article class="uk-article">
 
-                    <h1 class="uk-article-title">forms4health Integration</h1>
+                    <h1 class="uk-article-title">Batch Invocation</h1>
 
-                    <p class="subtitle uk-text-lead uk-text-muted">Processing a simple form submitted by the user</p>
+                    <p class="subtitle uk-text-lead uk-text-muted">Asynchronous batch invocation of AireGlu Endpoints</p>
 
                     <div class="uk-article-meta uk-margin-top uk-margin-medium-bottom">
                         
@@ -294,61 +294,201 @@
                     </div>
 
                     <div class="article-content">
-                        <p>This guide will cover the steps needed to create an endpoint for a simple form, then use some data from that form to send an email to the user. We will assume that you have already created the form in forms4health (<a href="https://docs.forms4health.com/docs/getting-started/">See the forms4health documentation if you are unsure how to do this.</a>)</p>
+                        <h2 id="introduction">Introduction</h2>
+<p>It is possible to invoke an endpoint multiple times by using AireGlu’s, asynchronous, batch processing functionality.</p>
 
-<h2 id="pre-requisites">Pre-requisites</h2>
+<h2 id="access-to-this-feature">Access to this feature</h2>
+<p>Your tenant/username must be added to the <code class="language-plaintext highlighter-rouge">ALLOWED_ASYNC_USERS</code> environment variable, you can add multiple users as a semicolon separated list.</p>
 
-<p>For the purposes of this guide, we will be using <a href="https://sandbox-forms.forms4health.com/demoOrg/SinglePass/greeting/1/Load">this form.</a>.  It has been setup so that the following control names are used:</p>
+<h2 id="how-to-invoke">How to invoke</h2>
+<p>Within your endpoint, add a HTTP Request Task. Make a POST request to the AireGlu Async Service - <code class="language-plaintext highlighter-rouge">https://my-async.aireglu.com/Api/batch/{username}/{endpointName}/{environmentOrVersion}</code></p>
+
+<p>The request body is a JSON object containing:</p>
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">first-name</code></li>
-  <li><code class="language-plaintext highlighter-rouge">last-name</code></li>
-  <li><code class="language-plaintext highlighter-rouge">email</code></li>
+  <li>the name of the callback endpoint to be invoked</li>
+  <li><code class="language-plaintext highlighter-rouge">request</code> array containing the required input to be passed into the batched endpoint invocations</li>
+  <li>environment or version of the callback endpoint</li>
 </ul>
 
-<p>It has been configured to point to our endpoint already.</p>
+<p>With a valid payload, the Async Api Endpoint will respond with a <code class="language-plaintext highlighter-rouge">202 Accepted</code>.</p>
 
-<h2 id="setting-up-the-endpoint">Setting up the endpoint</h2>
+<h2 id="how-authentication-works">How authentication works</h2>
+<p>The endpoint to be invoked via batch, should be  authenticated as you would normally for any other endpoint.
+The callback endpoint will be run by the batch functionality regardless of its authentication status, however, it should have authentication set so that it is protected from someone running it directly.</p>
 
-<h3 id="definition">Definition</h3>
+<h2 id="how-will-i-monitor-the-requests">How will I monitor the requests?</h2>
+<p>Usage data will be populated but it will be very difficult to follow.
+We strongly recommend ensuring that debug mode is turned off for the batch invoke and callback endpoints to minimise the amount of usage data (transaction data) stored when an endpoint is batch-invoked.
+The callback endpoint can be used to collect information about what the outcome of each invocation was.
+When calling the Async API you have the option to supply a batch transaction id (if none is supplied an id is automatically generated), the transaction id is made available in the input of the callback endpoint.</p>
 
-<p><img src="/assets/img/f4h-form/define-endpoint.png" alt="Defining the endpoint" />
-Head over to the Endpoints page using the top menu, and click the large plus button at the top to add a new endpoint.</p>
+<h2 id="example-endpoint-definitions">Example endpoint definitions</h2>
+<p>Here is an example endpoint definition that you can use to experiment with.</p>
 
-<p>The first step is to define our endpoint name and tasks it will perform. We’ll go through and add details to these tasks later. The Endpoint Name is important. This should be descriptive, but not too long because it’s used in the url for the endpoint. Task names should also be descriptive for your reference later. In our case, we’ll use <code class="language-plaintext highlighter-rouge">do-greeting</code> as an endpoint name. We also create a single Email type task called Send an Email.</p>
+<h1 id="batch-endpoint">Batch endpoint</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Versions:
+- Input:
+  Method: POST
+  InputMode: JSON
+  InputSource: Body
+  Schema: &gt;-
+	{
+   	 "$schema": "http://json-schema.org/draft-04/schema#",
+   	 "description": "",
+   	 "type": "object",
+   	 "properties": {
+   		 "test": {
+   			 "type": "string",
+   			 "minLength": 1
+   		 }
+   	 },
+   	 "required": [
+   		 "test"
+   	 ]
+	}
+  XmlSchemas:
+  ErrorEmail: ''
+  StopOnTaskFailure: true
+  Tasks:
+  - Behaviour: Response
+	RequestContext:
+	ResponseHandlerContext:
+	EmailContext:
+	FaxContext:
+	MeshContext:
+	SmsContext:
+	JobContext:
+	ResponseContext:
+  	OutputMode: JSON
+  	MapType: Path
+  	XsltParameters: []
+  	StatusCode: 200
+  	RetainStatusCode: false
+  	Template: &gt;-
+    	{
+   		 "test": "--*test*--"
+    	}
+  	Paths:
+    	test: $.test
+  	PathOrigins: {}
+  	Functions: {}
+  	FunctionLocations:
+	RedirectContext:
+	MappingContext:
+	PdfContext:
+	AdapterContext:
+	SftpContext:
+	JwtContext:
+	Tests: []
+	Filters: []
+	Label: ''
+	DataOrigin: -1
+	UseCRLFLineEndings: false
+  AuthenticationContexts: []
+  Version: 1
+  Active: true
+  PersistTransactionData: false
+Name: batch-test
+Environments:
+  Staging: 1
+  Production: 1
+</code></pre></div></div>
 
-<p>We’ll also leave the other settings as defaults: HTTP Method is POST, Endpoint Type is HTTP, no authentication, and Stop on Failure on.</p>
+<h1 id="callback-endpoint">Callback endpoint</h1>
 
-<p>Hit the Next button at the bottom to continue.</p>
-
-<h3 id="input-data">Input data</h3>
-
-<p><img src="/assets/img/f4h-form/input-data.png" alt="Shaping the input" /></p>
-
-<p>Our input data can start to get complex when we’re dealing with forms. The best way to define this is by providing the form schema. This can be found at a url that looks like: <code class="language-plaintext highlighter-rouge">https://[environment]-forms.forms4health.com/api/formschema/[form-name]/[form-version]</code>. Our form is in the <code class="language-plaintext highlighter-rouge">sandbox</code> environment, has a name of <code class="language-plaintext highlighter-rouge">greeting</code>, and a version of <code class="language-plaintext highlighter-rouge">1</code>, therefore our schema is found here: <a href="https://sandbox-forms.forms4health.com/api/formschema/greeting/1"><code class="language-plaintext highlighter-rouge">https://sandbox-forms.forms4health.com/api/formschema/greeting/1</code></a></p>
-
-<p>Before we do anything else, we should change the Format to <code class="language-plaintext highlighter-rouge">XML</code>. Then select the View tab of the context panel (the Eye icon on the right hand side). Replace its contents with the schema from our link. You may need to refresh the data on the left hand side so it matches our new schema.</p>
-
-<h3 id="creating-the-email">Creating the email</h3>
-
-<p>We’ll keep our email simple, but it will use data from our form for the sender, subject, and content. We’ll ignore attachments and custom SMTP as it’s beyond the scope of this guide.</p>
-
-<p><img src="/assets/img/f4h-form/email.png" alt="Shaping the input" /></p>
-
-<p>Make sure you have the Data tab open in the context panel (list icon). Data origin should be <code class="language-plaintext highlighter-rouge">Input</code> by default, as we don’t have any other tasks that provide us with data to use. Scroll down, and you should find the fields we’re interested in. Click into the <code class="language-plaintext highlighter-rouge">To</code> field, and then click the arrow next to <code class="language-plaintext highlighter-rouge">email</code> in the context panel.</p>
-
-<p><em>note:</em> Clicking the arrow to insert this does more than just add the text <code class="language-plaintext highlighter-rouge">--*email*--</code> to the field. It also links this to the data itself. By clicking in the middle of this text, you should see a new link icon appear. You can click this to see details of the underlying XPath that’s used to link this to data.</p>
-
-<p>Now, add a subject of <code class="language-plaintext highlighter-rouge">Hello --*first-name*--!</code> (again, using the context panel to insert <code class="language-plaintext highlighter-rouge">first-name</code>), and a content of <code class="language-plaintext highlighter-rouge">Hello --*first-name*-- --*last-name*--!</code></p>
-
-<p>Click <code class="language-plaintext highlighter-rouge">Next</code> when you’re ready. Tick the box to deploy to production, and then hit <code class="language-plaintext highlighter-rouge">Save &amp; Deploy</code>.</p>
-
-<h2 id="trying-it-out">Trying it out</h2>
-
-<p>Now that we’ve created our endpoint, we can submit our form and see our endpoint in action! <a href="https://sandbox-forms.forms4health.com/demoOrg/SinglePass/greeting/1/Load">Open the form and give it a go.</a> Once you submit the form, you should receive an email from AireGlu saying Hi!</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Versions:
+- Input: &gt;-
+	{
+   	 "success": true,
+   	 "errors": [],
+   	 "originalInput": {},
+   	 "endpointOutput": {}
+	}
+  Method: POST
+  InputMode: Callback
+  InputSource: Body
+  Schema: &gt;-
+	{
+   	 "$schema": "http://json-schema.org/draft-04/schema#",
+   	 "description": "",
+   	 "type": "object",
+   	 "properties": {
+   		 "success": {
+   			 "type": "boolean"
+   		 },
+   		 "errors": {
+   			 "type": "array",
+   			 "items": {
+   				 "type": "string"
+   			 }
+   		 },
+   		 "originalInput": {
+   			 "type": "object",
+   			 "properties": {},
+   			 "required": []
+   		 },
+   		 "endpointOutput": {
+   			 "type": "object",
+   			 "properties": {},
+   			 "required": []
+   		 }
+   	 },
+   	 "required": [
+   		 "success",
+   		 "originalInput"
+   	 ]
+	}
+  XmlSchemas:
+  ErrorEmail: ''
+  StopOnTaskFailure: true
+  Tasks:
+  - Behaviour: Response
+	RequestContext:
+	ResponseHandlerContext:
+	EmailContext:
+	FaxContext:
+	MeshContext:
+	SmsContext:
+	JobContext:
+	ResponseContext:
+  	OutputMode: JSON
+  	MapType: Path
+  	XsltParameters: []
+  	StatusCode: 200
+  	RetainStatusCode: false
+  	Template: &gt;-
+    	{
+   		 "success": "--*success*--"
+    	}
+  	Paths:
+    	success: $.success
+  	PathOrigins: {}
+  	Functions: {}
+  	FunctionLocations:
+	RedirectContext:
+	MappingContext:
+	PdfContext:
+	AdapterContext:
+	SftpContext:
+	JwtContext:
+	Tests: []
+	Filters: []
+	Label: ''
+	DataOrigin: -1
+	UseCRLFLineEndings: false
+  AuthenticationContexts: []
+  Version: 1
+  Active: true
+  PersistTransactionData: false
+Name: async-callback-test
+Environments:
+  Staging: 1
+  Production: 1
+</code></pre></div></div>
 
                         <div class="share uk-text-center">
-    <a href="https://twitter.com/intent/tweet?text=forms4health Integration&url=https://docs.aireglu.com/docs/guides/forms4health/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
-    <a  class="uk-margin-small-left" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.aireglu.com%2Fdocs%2Fguides%2Fforms4health%2F" rel="nofollow" target="_blank" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span data-uk-icon="icon: facebook; ratio: 1.2"></span></a>
+    <a href="https://twitter.com/intent/tweet?text=Batch Invocation&url=https://docs.aireglu.com/docs/guides/batchInvocation/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
+    <a  class="uk-margin-small-left" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.aireglu.com%2Fdocs%2Fguides%2FbatchInvocation%2F" rel="nofollow" target="_blank" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span data-uk-icon="icon: facebook; ratio: 1.2"></span></a>
 </div>
 
                     </div>
@@ -432,19 +572,13 @@ Head over to the Endpoints page using the top menu, and click the large plus but
 
   
   
-    <ul class="uk-pagination uk-margin-top">
-          
-            
-            
-            <li><a class="hvr-back" href="/docs/guides/liquid/">&larr; Previous</a></li>
-          
-          
-            
-            
-            <li class="uk-margin-auto-left"><a class="hvr-forward" href="/docs/deployment-process/">Next &rarr;</a></li>
-          
-    </ul>
-    
+
+  
+  
+
+  
+  
+
 
 
                     <div class="uk-margin-large-top">
@@ -490,10 +624,6 @@ Head over to the Endpoints page using the top menu, and click the large plus but
     
 
     
-        <li><a href="/docs/endpoints/">Endpoints</a></li>
-        
-        
-    
 
     
 
@@ -530,6 +660,19 @@ Head over to the Endpoints page using the top menu, and click the large plus but
 
     
         <li><a href="/docs/endpoints/tasks/fax/">Fax Task</a></li>
+        
+        
+    
+
+    
+
+    
+    
+
+    
+
+    
+        <li><a href="/docs/endpoints/tasks/http-redirect/">HTTP Redirect</a></li>
         
         
             
@@ -681,7 +824,7 @@ Head over to the Endpoints page using the top menu, and click the large plus but
         
           
           
-          <li class="uk-active"><a href="/docs/guides/forms4health/">forms4health Integration</a></li>
+          <li class=""><a href="/docs/guides/forms4health/">forms4health Integration</a></li>
         
         </ul>
         

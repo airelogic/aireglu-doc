@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://docs.aireglu.com/docs/adapters/" />
 <meta property="og:site_name" content="AireGlu Docs" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-02-15T12:52:26+00:00" />
+<meta property="article:published_time" content="2024-02-16T12:06:51+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Aireglu adapter implementation" />
 <script type="application/ld+json">
-{"description":"Introduction Adapters are an extensibility point within the AireGlu framework. They allow you to implement custom task behaviours as a code plugin, which can then be called upon within any endpoint pipeline.","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/adapters/","headline":"Aireglu adapter implementation","dateModified":"2024-02-15T12:52:26+00:00","datePublished":"2024-02-15T12:52:26+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/adapters/"},"author":{"@type":"Person","name":"David Bond"},"@context":"https://schema.org"}</script>
+{"description":"Introduction Adapters are an extensibility point within the AireGlu framework. They allow you to implement custom task behaviours as a code plugin, which can then be called upon within any endpoint pipeline.","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/adapters/","headline":"Aireglu adapter implementation","dateModified":"2024-02-16T12:06:51+00:00","datePublished":"2024-02-16T12:06:51+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/adapters/"},"author":{"@type":"Person","name":"David Bond"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.aireglu.com/assets/posts/"/>
@@ -286,9 +286,9 @@
 
 
 
-<time datetime="2024-02-15T12:52:26+00:00" itemprop="datePublished">
+<time datetime="2024-02-16T12:06:51+00:00" itemprop="datePublished">
     
-    Feb 15, 2024
+    Feb 16, 2024
 </time>
 
                     </div>
@@ -342,6 +342,8 @@
 
         <span class="p">[</span><span class="nf">AdapterField</span><span class="p">(</span><span class="n">AdapterFieldEditorType</span><span class="p">.</span><span class="n">RichText</span><span class="p">)]</span>
         <span class="k">public</span> <span class="kt">string</span> <span class="n">SpellDescription</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">override</span> <span class="kt">string</span> <span class="nf">ToContextJson</span><span class="p">()</span> <span class="p">=&gt;</span> <span class="n">JsonSerializer</span><span class="p">.</span><span class="nf">Serialize</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
@@ -364,6 +366,22 @@ You will notice that we can decorate the properties with <code class="language-p
 </ul>
 
 <p>This attribute is not required however, and if omitted the property will take the default ‘Text’ editor type, with the name taken from the property, and required being false.</p>
+
+<h3 id="improving-performance">Improving performance</h3>
+<p>You can improve the performance of your adapters by using compiled serialization for your ToContextJson method, which will remove the requirement for the framework to use reflection to inspect your ResolvedValues. Firstly you need a SerializationContext:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">[</span><span class="nf">JsonSerializable</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">MagicResolvedValues</span><span class="p">))]</span>
+<span class="k">public</span> <span class="k">partial</span> <span class="k">class</span> <span class="nc">MagicResolvedValuesSerializerContext</span> <span class="p">:</span> <span class="n">JsonSerializerContext</span>
+<span class="p">{}</span>
+</code></pre></div></div>
+
+<p>which you can then use from the ToContextJson method:</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">override</span> <span class="kt">string</span> <span class="nf">ToContextJson</span><span class="p">()</span>
+  <span class="p">=&gt;</span> <span class="n">JsonSerializer</span><span class="p">.</span><span class="nf">Serialize</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">MagicResolvedValuesSerializerContext</span><span class="p">.</span><span class="n">Default</span><span class="p">.</span><span class="n">MagicResolvedValues</span><span class="p">);</span>
+
+</code></pre></div></div>
+
 <h3 id="adapter-dependencies">Adapter dependencies</h3>
 <p>Your adapter implementation can have dependencies injected from AireGlu, using the <code class="language-plaintext highlighter-rouge">[ImportingConstructor]</code> attribute:</p>
 <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>

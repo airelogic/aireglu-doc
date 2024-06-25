@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://docs.aireglu.com/docs/endpoints/tasks/http-request/" />
 <meta property="og:site_name" content="AireGlu Docs" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-06-20T11:15:10+00:00" />
+<meta property="article:published_time" content="2024-06-25T15:53:09+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="HTTP Request Task" />
 <script type="application/ld+json">
-{"description":"The HTTP Request task is used to communicate with external services. You can use this to send data to your APIs, or fetch data from other sources.","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/endpoints/tasks/http-request/","headline":"HTTP Request Task","dateModified":"2024-06-20T11:15:10+00:00","datePublished":"2024-06-20T11:15:10+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/endpoints/tasks/http-request/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
+{"description":"The HTTP Request task is used to communicate with external services. You can use this to send data to your APIs, or fetch data from other sources.","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/endpoints/tasks/http-request/","headline":"HTTP Request Task","dateModified":"2024-06-25T15:53:09+00:00","datePublished":"2024-06-25T15:53:09+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/endpoints/tasks/http-request/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.aireglu.com/assets/posts/"/>
@@ -286,9 +286,9 @@
 
 
 
-<time datetime="2024-06-20T11:15:10+00:00" itemprop="datePublished">
+<time datetime="2024-06-25T15:53:09+00:00" itemprop="datePublished">
     
-    Jun 20, 2024
+    Jun 25, 2024
 </time>
 
                     </div>
@@ -306,6 +306,15 @@
 
 <h3 id="certificates">Certificates</h3>
 <p>Certificates are used for client authentication via Mutual TLS. For the most part, this is not required, but some services may need this. Due to a current issue, you should enter the password for the certificate first, then upload the certificate file itself.</p>
+
+<h3 id="stream-response">Stream Response</h3>
+<p>It is now possible to receive binary streams from an HTTP Request task, such as when requesting content with media types like <code class="language-plaintext highlighter-rouge">image/jpeg</code> or <code class="language-plaintext highlighter-rouge">application/pdf</code>.</p>
+
+<h4 id="limitations">Limitations</h4>
+<ul>
+  <li>Streams from an HTTP Request task cannot currently be mapped into another task.</li>
+  <li>To return a binary stream from your endpoint, the HTTP Request task must be the final output of the endpoint’s execution pipeline.</li>
+</ul>
 
                         <div class="share uk-text-center">
     <a href="https://twitter.com/intent/tweet?text=HTTP Request Task&url=https://docs.aireglu.com/docs/endpoints/tasks/http-request/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>

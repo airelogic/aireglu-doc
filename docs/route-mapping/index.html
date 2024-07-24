@@ -6,22 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Jobs | AireGlu Docs</title>
+<title>Route Mapping | AireGlu Docs</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Jobs" />
-<meta name="author" content="Joshua Moon" />
+<meta property="og:title" content="Route Mapping" />
+<meta name="author" content="Chris Surfleet" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Jobs are reoccuring endpoints that start on a timer as opposed to being called. They are much akin to Scheduled Tasks, and run a specified endpoint with given data on a schedule of your choosing." />
-<meta property="og:description" content="Jobs are reoccuring endpoints that start on a timer as opposed to being called. They are much akin to Scheduled Tasks, and run a specified endpoint with given data on a schedule of your choosing." />
-<link rel="canonical" href="https://docs.aireglu.com/docs/jobs/" />
-<meta property="og:url" content="https://docs.aireglu.com/docs/jobs/" />
+<meta name="description" content="Route Mappings allow you to setup a custom HTTP route to any endpoint within your tenancy. This can be useful for integrating with existing systems expecting certain route patterns, or just to make an address easier to understand. It will also allow you to forward methods, meaning that you can point a POST route mapping at a PUT endpoint and all will continue working." />
+<meta property="og:description" content="Route Mappings allow you to setup a custom HTTP route to any endpoint within your tenancy. This can be useful for integrating with existing systems expecting certain route patterns, or just to make an address easier to understand. It will also allow you to forward methods, meaning that you can point a POST route mapping at a PUT endpoint and all will continue working." />
+<link rel="canonical" href="https://docs.aireglu.com/docs/route-mapping/" />
+<meta property="og:url" content="https://docs.aireglu.com/docs/route-mapping/" />
 <meta property="og:site_name" content="AireGlu Docs" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-07-24T09:04:05+00:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Jobs" />
+<meta property="twitter:title" content="Route Mapping" />
 <script type="application/ld+json">
-{"description":"Jobs are reoccuring endpoints that start on a timer as opposed to being called. They are much akin to Scheduled Tasks, and run a specified endpoint with given data on a schedule of your choosing.","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/jobs/","headline":"Jobs","dateModified":"2024-07-24T09:04:05+00:00","datePublished":"2024-07-24T09:04:05+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/jobs/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
+{"description":"Route Mappings allow you to setup a custom HTTP route to any endpoint within your tenancy. This can be useful for integrating with existing systems expecting certain route patterns, or just to make an address easier to understand. It will also allow you to forward methods, meaning that you can point a POST route mapping at a PUT endpoint and all will continue working.","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/route-mapping/","headline":"Route Mapping","dateModified":"2024-07-24T09:04:05+00:00","datePublished":"2024-07-24T09:04:05+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/route-mapping/"},"author":{"@type":"Person","name":"Chris Surfleet"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.aireglu.com/assets/posts/"/>
@@ -156,7 +156,7 @@
                     
                       
                       
-                      <li class="uk-active"><a href="/docs/jobs/">Jobs</a></li>
+                      <li class=""><a href="/docs/jobs/">Jobs</a></li>
                     
                       
                       
@@ -288,9 +288,9 @@
 
                 <article class="uk-article">
 
-                    <h1 class="uk-article-title">Jobs</h1>
+                    <h1 class="uk-article-title">Route Mapping</h1>
 
-                    <p class="subtitle uk-text-lead uk-text-muted">Repeating magic</p>
+                    
 
                     <div class="uk-article-meta uk-margin-top uk-margin-medium-bottom">
                         
@@ -307,26 +307,72 @@
                     </div>
 
                     <div class="article-content">
-                        <p>Jobs are reoccuring endpoints that start on a timer as opposed to being called. They are much akin to Scheduled Tasks, and run a specified endpoint with given data on a schedule of your choosing.</p>
+                        <p>Route Mappings allow you to setup a custom HTTP route to any endpoint within your tenancy. This can be useful for
+integrating with existing systems expecting certain route patterns, or just to make an address easier to understand.
+It will also allow you to forward methods, meaning that you can point a POST route mapping at a PUT endpoint and
+all will continue working.</p>
 
-<p><img src="/assets/img/jobs-list.png" alt="Jobs page" /></p>
+<p>Standard AireGlu endpoint URLs follow this pattern:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://domain/tenant/endpoint/environmentOrVersion
+</code></pre></div></div>
 
-<h2 id="creating-a-new-job">Creating a new job</h2>
-<p>They can be defined manually, using the jobs tab, or via their cousin, the <a href="../endpoints/tasks/job/">Job task</a>. To define a job manually, click the large <code class="language-plaintext highlighter-rouge">+</code> button at the top of the page.</p>
+<p>With custom routing, you can use:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://domain/tenant/custompath
+</code></pre></div></div>
 
-<p><img src="/assets/img/job-creation.gif" alt="Jobs page" /><br />
-From here you can name the job, select the endpoint you want to run, what data it should have, and set the schedule. You can also set <code class="language-plaintext highlighter-rouge">Disable on failure</code>, to turn the job off if it doesn’t work. You can always turn it back on manually later.</p>
+<h2 id="enabling-route-mapping">Enabling Route Mapping</h2>
+<p>The first step in using Route Mappings is to enable them for your tenancy. Go to the My Account page and check
+Enable Custom Routing from the AireGlu Settings section.</p>
 
-<p>For setting the schedule, you can either use the wizard options to set a pattern, or use a <a href="https://en.wikipedia.org/wiki/Cron">cron expression</a>. Cron expressions are in the standard Linux format.</p>
+<p>In order to gain access to the Route Mappings screen, a user will need the following permissions in AireIdentity:</p>
+<ul>
+  <li>list:RouteMapping</li>
+  <li>view:RouteMapping</li>
+  <li>edit:RouteMapping</li>
+  <li>delete:RouteMapping</li>
+  <li>create:RouteMapping</li>
+</ul>
 
-<p>When you’re done, simply click Save to save and turn on your job.  You’ll be taken back to the jobs list, and you’ll be able to see your new job, along with it’s last and next run times. You can turn it on and off from here, by changing the Active switch.</p>
+<h2 id="creating-a-route-mapping">Creating a Route Mapping</h2>
+<p>From the Route Mappings screen, select the Plus icon and you should see a dialog like this:
+<img src="{site.baseurl}/assets/img/route-mappings/empty-dialog.png" alt="route mapping dialog" /></p>
 
-<h2 id="modifying-a-job">Modifying a job</h2>
-<p>Editing a job can be accomplished by expanding the job’s details (click on the job to expand), and clicking on the pencil icon in the lower right. This takes you to a page much like the one used to create the job, and can be modified in the same way.</p>
+<h4 id="method-to-match">Method to Match</h4>
+<p>This is the method that calls to your custom route will be made on. This does not have to match the method
+of your endpoint - your calls will be forwarded correctly.</p>
+
+<h4 id="route-to-match">Route to Match</h4>
+<p>The route you want to use to call your endpoint. This can be specified in 2 ways:</p>
+<ul>
+  <li>a simple route, e.g. /my/custom/route. This will match calls to https://glu-api.aireinnovate.com/yourtenant/my/custom/route</li>
+  <li>a regex. This must include string start and end characters ^$ e.g ^/[abc]{3}/myendpoint$ which would match:
+    <ul>
+      <li>https://glu-api.aireinnovate.com/yourtenant/aaa/myendpoint</li>
+      <li>https://glu-api.aireinnovate.com/yourtenant/jyd/myendpoint</li>
+      <li>etc</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="endpoint">Endpoint</h4>
+<p>The endpoint that you wish to forward the route to.</p>
+
+<h4 id="version">Version</h4>
+<p>The version of the endpoint that you wish to forward to. If in doubt selecting Production will forward to the latest
+released endpoint version.</p>
+
+<h2 id="notes">Notes</h2>
+
+<ul>
+  <li>Custom routing is tenant-specific;</li>
+  <li>Ensure your custom routes are unique to avoid conflicts;</li>
+  <li>Be careful with regex routes, it is easy to make a path that could match multiple mappings if you make your expressions to permissive;</li>
+  <li>All examples assume you are running against our live hosted instance of AireGlu, you may need to replace https://glu-api.aireinnovate.com with your target runtime instance.</li>
+</ul>
 
                         <div class="share uk-text-center">
-    <a href="https://twitter.com/intent/tweet?text=Jobs&url=https://docs.aireglu.com/docs/jobs/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
-    <a  class="uk-margin-small-left" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.aireglu.com%2Fdocs%2Fjobs%2F" rel="nofollow" target="_blank" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span data-uk-icon="icon: facebook; ratio: 1.2"></span></a>
+    <a href="https://twitter.com/intent/tweet?text=Route Mapping&url=https://docs.aireglu.com/docs/route-mapping/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
+    <a  class="uk-margin-small-left" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.aireglu.com%2Fdocs%2Froute-mapping%2F" rel="nofollow" target="_blank" title="Share on Facebook" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><span data-uk-icon="icon: facebook; ratio: 1.2"></span></a>
 </div>
 
                     </div>
@@ -350,19 +396,79 @@ From here you can name the job, select the endpoint you want to run, what data i
 
   
   
-    <ul class="uk-pagination uk-margin-top">
-          
-            
-            
-            <li><a class="hvr-back" href="/docs/repositories/">&larr; Previous</a></li>
-          
-          
-            
-            
-            <li class="uk-margin-auto-left"><a class="hvr-forward" href="/docs/receivers/">Next &rarr;</a></li>
-          
-    </ul>
-    
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
 
 
                     <div class="uk-margin-large-top">
@@ -408,7 +514,16 @@ From here you can name the job, select the endpoint you want to run, what data i
     
 
     
-        <li><a href="/docs/endpoints/">Endpoints</a></li>
+
+    
+
+    
+    
+
+    
+
+    
+        <li><a href="/docs/endpoints/tasks/">Endpoint Tasks</a></li>
         
         
     
@@ -421,88 +536,7 @@ From here you can name the job, select the endpoint you want to run, what data i
     
 
     
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-        <li><a href="/docs/endpoints/tasks/mapping/">Mapping Task</a></li>
+        <li><a href="/docs/endpoints/tasks/email/">Email Task</a></li>
         
         
     
@@ -515,52 +549,7 @@ From here you can name the job, select the endpoint you want to run, what data i
     
 
     
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-        <li><a href="/docs/guides/forms4health/">forms4health Integration</a></li>
+        <li><a href="/docs/endpoints/tasks/fax/">Fax Task</a></li>
         
         
     
@@ -573,7 +562,7 @@ From here you can name the job, select the endpoint you want to run, what data i
     
 
     
-        <li><a href="/docs/guides/liquid/">Liquid Templating</a></li>
+        <li><a href="/docs/endpoints/tasks/http-redirect/">HTTP Redirect</a></li>
         
         
             
@@ -635,7 +624,7 @@ From here you can name the job, select the endpoint you want to run, what data i
         
           
           
-          <li class="uk-active"><a href="/docs/jobs/">Jobs</a></li>
+          <li class=""><a href="/docs/jobs/">Jobs</a></li>
         
           
           

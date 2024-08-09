@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://docs.aireglu.com/docs/route-mapping/" />
 <meta property="og:site_name" content="AireGlu Docs" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-08-07T08:00:54+00:00" />
+<meta property="article:published_time" content="2024-08-09T11:17:31+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Route Mapping" />
 <script type="application/ld+json">
-{"description":"Route Mappings allow you to setup a custom HTTP route to any endpoint within your tenancy. This can be useful for integrating with existing systems expecting certain route patterns, or just to make an address easier to understand. It will also allow you to forward methods, meaning that you can point a POST route mapping at a PUT endpoint and all will continue working.","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/route-mapping/","headline":"Route Mapping","dateModified":"2024-08-07T08:00:54+00:00","datePublished":"2024-08-07T08:00:54+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/route-mapping/"},"author":{"@type":"Person","name":"Chris Surfleet"},"@context":"https://schema.org"}</script>
+{"description":"Route Mappings allow you to setup a custom HTTP route to any endpoint within your tenancy. This can be useful for integrating with existing systems expecting certain route patterns, or just to make an address easier to understand. It will also allow you to forward methods, meaning that you can point a POST route mapping at a PUT endpoint and all will continue working.","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/route-mapping/","headline":"Route Mapping","dateModified":"2024-08-09T11:17:31+00:00","datePublished":"2024-08-09T11:17:31+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/route-mapping/"},"author":{"@type":"Person","name":"Chris Surfleet"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.aireglu.com/assets/posts/"/>
@@ -238,7 +238,7 @@
                     
                       
                       
-                      <li class=""><a href=""></a></li>
+                      <li class="uk-active"><a href="/docs/route-mapping/">Route Mapping</a></li>
                     
                     </ul>
                     
@@ -299,9 +299,9 @@
 
 
 
-<time datetime="2024-08-07T08:00:54+00:00" itemprop="datePublished">
+<time datetime="2024-08-09T11:17:31+00:00" itemprop="datePublished">
     
-    Aug 7, 2024
+    Aug 9, 2024
 </time>
 
                     </div>
@@ -320,11 +320,8 @@ all will continue working.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://domain/tenant/custompath
 </code></pre></div></div>
 
-<h2 id="enabling-route-mapping">Enabling Route Mapping</h2>
-<p>The first step in using Route Mappings is to enable them for your tenancy. Go to the My Account page and check
-Enable Custom Routing from the AireGlu Settings section.</p>
-
-<p>In order to gain access to the Route Mappings screen, a user will need the following permissions in AireIdentity:</p>
+<h2 id="enabling-route-mapping">Enabling route mapping</h2>
+<p>In order to gain access to the Routing screen, a user will need the following permissions in AireIdentity:</p>
 <ul>
   <li>list:RouteMapping</li>
   <li>view:RouteMapping</li>
@@ -333,15 +330,15 @@ Enable Custom Routing from the AireGlu Settings section.</p>
   <li>create:RouteMapping</li>
 </ul>
 
-<h2 id="creating-a-route-mapping">Creating a Route Mapping</h2>
-<p>From the Route Mappings screen, select the Plus icon and you should see a dialog like this:
+<h2 id="creating-a-route-mapping">Creating a route mapping</h2>
+<p>From the Routing screen, select the Plus icon and you should see a dialog like this:
 <img src="{site.baseurl}/assets/img/route-mappings/empty-dialog.png" alt="route mapping dialog" /></p>
 
-<h4 id="method-to-match">Method to Match</h4>
+<h4 id="method-to-match">Method to match</h4>
 <p>This is the method that calls to your custom route will be made on. This does not have to match the method
 of your endpoint - your calls will be forwarded correctly.</p>
 
-<h4 id="route-to-match">Route to Match</h4>
+<h4 id="route-to-match">Route to match</h4>
 <p>The route you want to use to call your endpoint. This can be specified in 2 ways:</p>
 <ul>
   <li>a simple route, e.g. /my/custom/route. This will match calls to https://glu-api.aireinnovate.com/yourtenant/my/custom/route</li>
@@ -368,6 +365,7 @@ released endpoint version.</p>
   <li>Ensure your custom routes are unique to avoid conflicts;</li>
   <li>Be careful with regex routes, it is easy to make a path that could match multiple mappings if you make your expressions to permissive;</li>
   <li>All examples assume you are running against our live hosted instance of AireGlu, you may need to replace https://glu-api.aireinnovate.com with your target runtime instance.</li>
+  <li>If you need to access the routing information from within an endpoint, you can use Liquid. Please see our <a href="./guides/liquid">Liquid</a> guide</li>
 </ul>
 
                         <div class="share uk-text-center">
@@ -450,25 +448,19 @@ released endpoint version.</p>
 
   
   
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
-  
-  
-
+    <ul class="uk-pagination uk-margin-top">
+          
+            
+            
+            <li><a class="hvr-back" href="/docs/endpoints/custom-functions/">&larr; Previous</a></li>
+          
+          
+            
+            
+            <li class="uk-margin-auto-left"><a class="hvr-forward" href="/docs/getting-started/">Next &rarr;</a></li>
+          
+    </ul>
+    
 
 
                     <div class="uk-margin-large-top">
@@ -706,7 +698,7 @@ released endpoint version.</p>
         
           
           
-          <li class=""><a href=""></a></li>
+          <li class="uk-active"><a href="/docs/route-mapping/">Route Mapping</a></li>
         
         </ul>
         

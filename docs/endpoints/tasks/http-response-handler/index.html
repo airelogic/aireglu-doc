@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://docs.aireglu.com/docs/endpoints/tasks/http-response-handler/" />
 <meta property="og:site_name" content="AireGlu Docs" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-08-19T10:05:37+00:00" />
+<meta property="article:published_time" content="2024-08-19T13:17:33+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="HTTP Response Handler" />
 <script type="application/ld+json">
-{"description":"This page is about the task for handling the response of the HTTP Request task. If you are looking to return data from the endpoint, please see HTTP Response instead.","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/endpoints/tasks/http-response-handler/","headline":"HTTP Response Handler","dateModified":"2024-08-19T10:05:37+00:00","datePublished":"2024-08-19T10:05:37+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/endpoints/tasks/http-response-handler/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
+{"description":"This page is about the task for handling the response of the HTTP Request task. If you are looking to return data from the endpoint, please see HTTP Response instead.","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/endpoints/tasks/http-response-handler/","headline":"HTTP Response Handler","dateModified":"2024-08-19T13:17:33+00:00","datePublished":"2024-08-19T13:17:33+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/endpoints/tasks/http-response-handler/"},"author":{"@type":"Person","name":"Joshua Moon"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.aireglu.com/assets/posts/"/>
@@ -299,7 +299,7 @@
 
 
 
-<time datetime="2024-08-19T10:05:37+00:00" itemprop="datePublished">
+<time datetime="2024-08-19T13:17:33+00:00" itemprop="datePublished">
     
     Aug 19, 2024
 </time>
@@ -317,6 +317,23 @@
 
 <h2 id="receive-handlers">Receive Handlers</h2>
 <p>The most common handler, Receive lets you define the expected shape of the data that you get back from the request, andd store it for use by later tasks. This is accomplished by creating a schema that the returned data must match. It can then be accessed by future tasks in the same manner as the input data, or <a href="../mapping/">Mapping</a> tasks.</p>
+
+<p>It is possible to receive streams from a HTTP Request and map them into another task. However, in order to consume the stream in a task you must encode it to a base64 string by using the inbuilt function <code class="language-plaintext highlighter-rouge">--*AG:Base64Encode(String or Stream To Encode)*--</code>.</p>
+
+<p>e.g.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "foo": --*AG:Base64Encode(--*responseStream*--)*--
+}
+</code></pre></div></div>
+<p>Where ` “–<em>responseStream</em>–”`  is a reference to the stream of a reasponse handler task.</p>
+
+<p>If you attempt to return a stream without encoding it in an output task which is set to a data type such JSON or XML you will receive a string reference to the stream and not the stream itself.</p>
+
+<p>e.g</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{ 
+  "myJson": "--*responseStream*--" // this will return "Stream Content"
+}
+</code></pre></div></div>
 
 <h2 id="forward-handlers">Forward handlers</h2>
 <p>A Forward handler lets you take the data from the response, modify it, and immediately send it on to another service.  You can configure this request in the same manner as any other <a href="../http-request">HTTP Request</a> task.<br />

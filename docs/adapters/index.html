@@ -17,11 +17,11 @@
 <meta property="og:url" content="https://docs.aireglu.com/docs/adapters/" />
 <meta property="og:site_name" content="AireGlu Docs" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-08-28T13:57:52+00:00" />
+<meta property="article:published_time" content="2024-08-30T21:18:23+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Aireglu adapter implementation" />
 <script type="application/ld+json">
-{"description":"Introduction Adapters are an extensibility point within the AireGlu framework. They allow you to implement custom task behaviours as a code plugin, which can then be called upon within any endpoint pipeline.","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/adapters/","headline":"Aireglu adapter implementation","dateModified":"2024-08-28T13:57:52+00:00","datePublished":"2024-08-28T13:57:52+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/adapters/"},"author":{"@type":"Person","name":"David Bond"},"@context":"https://schema.org"}</script>
+{"description":"Introduction Adapters are an extensibility point within the AireGlu framework. They allow you to implement custom task behaviours as a code plugin, which can then be called upon within any endpoint pipeline.","@type":"BlogPosting","url":"https://docs.aireglu.com/docs/adapters/","headline":"Aireglu adapter implementation","dateModified":"2024-08-30T21:18:23+00:00","datePublished":"2024-08-30T21:18:23+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://docs.aireglu.com/docs/adapters/"},"author":{"@type":"Person","name":"David Bond"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="https://docs.aireglu.com/assets/posts/"/>
@@ -299,9 +299,9 @@
 
 
 
-<time datetime="2024-08-28T13:57:52+00:00" itemprop="datePublished">
+<time datetime="2024-08-30T21:18:23+00:00" itemprop="datePublished">
     
-    Aug 28, 2024
+    Aug 30, 2024
 </time>
 
                     </div>
@@ -448,6 +448,16 @@ You will notice that we can decorate the properties with <code class="language-p
 <h2 id="publishing">Publishing</h2>
 <p>In order to publish your adapter and make it available within your SaaS cloud environment, it needs to be submitted for approval. This is a light-touch governance process which can be started by <a href="mailto:support@airelogic.com">raising a support ticket</a>.</p>
 
+<p><strong>Note</strong>: To access the output of an adapter via <a href="(/docs/guides/liquid/)">liquid</a> - `` this will return:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{ 
+    "Format": "XML",
+    "StatusCode": 200,
+    "Result": "result of mapping-task",
+    "Success": true,
+    "ContentType": "application/xml",
+    "RedirectUrl": null, 
+}
+</code></pre></div></div>
 
                         <div class="share uk-text-center">
     <a href="https://twitter.com/intent/tweet?text=Aireglu adapter implementation&url=https://docs.aireglu.com/docs/adapters/&via=airelogic&related=airelogic" rel="nofollow" target="_blank" title="Share on Twitter" onclick="window.open(this.href, 'twitter', 'width=550,height=235');return false;"><span data-uk-icon="icon: twitter; ratio: 1.2"></span></a>
